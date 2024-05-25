@@ -3,7 +3,8 @@ site_name: UNB - Engenharia de Software
 nav:
   - Apresentação Prezi: index.md
   - FSO:
-    - Visão Geral de um computador: fudamentos_de_SO/visao_geral.md
+    - Visão Geral de um computador: fundamentos_de_SO/visao_geral.md
+    - Classificações dos SO: fundamentos_de_SO/classificacoes_SO.md
 
 
 theme:
