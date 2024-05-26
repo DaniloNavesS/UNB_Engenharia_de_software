@@ -7,7 +7,7 @@
 - O processo deve ser visto como uma unidade de contexto, ou seja, um contêiner de recursos utilizados por uma ou mais tarefas para sua execução: áreas de memória (código, dados, pilha), informações de contexto e descritores de recursos
 do núcleo (arquivos abertos, conexões de rede, etc).
 
-![Processo na maquina](/img/processos/processos.png)
+![Processo na maquina](./img/processos/processos.png)
 
 ## Elementos de um processo
 
@@ -51,7 +51,7 @@ Daemons: é um processo em segundo plano que executa tarefas específicas de for
 
 Hierarquia em árvore:
 
-![Hierarquia em árvore](/img/processos/processos_arvores.png)
+![Hierarquia em árvore](img/processos/processos_arvores.png)
 
 ## Criação de processo no Unix
 
