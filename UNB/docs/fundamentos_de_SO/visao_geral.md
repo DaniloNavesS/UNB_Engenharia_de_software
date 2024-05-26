@@ -6,7 +6,7 @@ Sistema Operacional é programa ou conjunto de programas.
 - Software: conjunto de todos os programas
 
 
-![Visão da Estrutura](/img/fundamentos_de_SO/visao.png)
+![Visão da Estrutura](../img/fundamentos_de_SO/visao.png)
 
 Tanenbaum: a maioria dos SOs possuem dois
 modos de operação: modo protegido (modo kernel)

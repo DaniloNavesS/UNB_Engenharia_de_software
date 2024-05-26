@@ -7,7 +7,7 @@
 - O processo deve ser visto como uma unidade de contexto, ou seja, um contêiner de recursos utilizados por uma ou mais tarefas para sua execução: áreas de memória (código, dados, pilha), informações de contexto e descritores de recursos
 do núcleo (arquivos abertos, conexões de rede, etc).
 
-![Processo na maquina](./img/processos/processos.png)
+![Processo na maquina](../img/processos/processos.png)
 
 ## Elementos de um processo
 
@@ -51,7 +51,7 @@ Daemons: é um processo em segundo plano que executa tarefas específicas de for
 
 Hierarquia em árvore:
 
-![Hierarquia em árvore](img/processos/processos_arvores.png)
+![Hierarquia em árvore](../img/processos/processos_arvores.png)
 
 ## Criação de processo no Unix
 
@@ -59,7 +59,7 @@ Hierarquia em árvore:
 fork();
 ```
 
-![Fork](/img/processos/processo_fork.png)
+![Fork](../img/processos/processo_fork.png)
 
 - Clone idêntico ao processo que chamou
 - Normalmente, executa execve depois da chamada para mudar o "programa" em execução
@@ -87,7 +87,7 @@ Leitura em disco -> Leitura de rede -> Esperando entrada de usuário
 
 Representação de estados de um processo
 
-![Estados](/img/processos/processo_estados.png)
+![Estados](../img/processos/processo_estados.png)
 
 (1) O processo bloqueia-se aguardando uma entrada
 
@@ -128,7 +128,7 @@ de gerência;
 tarefa a ativar (B);
 6. O despachante resgata o estado da tarefa B de seu TCB e a reativa.
 
-![Diagrama Troca de contexto](/img/processos/processo_diagrama.png)
+![Diagrama Troca de contexto](../img/processos/processo_diagrama.png)
 
 ## Escalonador de Processos
 
@@ -187,7 +187,7 @@ Sendo eles: First Come First Served, Round-Robin, Prioridades, Shorteste Job Fir
 
 - O processo obtém a CPU de acordo com a ordem da chegada das solicitações. o processo que pede a CPU primeiro, obtém a CPU em primeiro lugar
 
-![First Come First Served](/img/processos/fcfs.png)
+![First Come First Served](../img/processos/fcfs.png)
 
 - O escalonador FCFS é <strong>Não-preemptivo</strong>
 
@@ -207,11 +207,11 @@ Sendo eles: First Come First Served, Round-Robin, Prioridades, Shorteste Job Fir
 
 - Cada processo tem o direito de usar o processador por um intervalo de tempo pré-definido. Este intervalo de tempo é denominado quantum
 
-![Round-Robin](/img/processos/round_robin.png)
+![Round-Robin](../img/processos/round_robin.png)
 
 - Algoritmo por alternância circular
 
-![Round-Robin fila](/img/processos/round_fila.png)
+![Round-Robin fila](../img/processos/round_fila.png)
 
 - Algoritmo justo
 
@@ -232,7 +232,7 @@ formas: estática ou dinâmica
 
 - Os processos são divididos em classes e a cada classe é atribuída uma prioridade. A cada prioridade existe uma fila de prontos associada
 
-![Prioridade Fixa](/img/processos/prioridade_fixa.png)
+![Prioridade Fixa](../img/processos/prioridade_fixa.png)
 
 #### Dinâmica 
 
@@ -247,7 +247,7 @@ processo
 
 - Dado um conjunto de processos, execute os de menor tempo de execução antes.
 
-![Shortest Job First](/img/processos/first_job.png)
+![Shortest Job First](../img/processos/first_job.png)
 
 #### Vantagens
 

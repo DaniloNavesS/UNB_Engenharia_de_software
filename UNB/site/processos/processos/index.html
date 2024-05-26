@@ -1,0 +1,1176 @@
+
+<!doctype html>
+<html lang="pt" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../../fundamentos_de_SO/estrutura_kernel/">
+      
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.5.18">
+    
+    
+      
+        <title>Processos - UNB - Engenharia de Software</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.66ac8b77.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Ubuntu:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Ubuntu";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="light-blue" data-md-color-primary="blue" data-md-color-accent="light-blue">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#processos" class="md-skip">
+          Ir para o conteúdo
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Cabeçalho">
+    <a href="../.." title="UNB - Engenharia de Software" class="md-header__button md-logo" aria-label="UNB - Engenharia de Software" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            UNB - Engenharia de Software
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Processos
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="light-blue" data-md-color-primary="blue" data-md-color-accent="light-blue"  aria-label="Alternar para modo escuro"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Alternar para modo escuro" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 6H7c-3.31 0-6 2.69-6 6s2.69 6 6 6h10c3.31 0 6-2.69 6-6s-2.69-6-6-6zm0 10H7c-2.21 0-4-1.79-4-4s1.79-4 4-4h10c2.21 0 4 1.79 4 4s-1.79 4-4 4zM7 9c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="black" data-md-color-accent="light-blue"  aria-label="Alternar para modo claro"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Alternar para modo claro" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h10a5 5 0 0 0 5-5 5 5 0 0 0-5-5m0 8a3 3 0 0 1-3-3 3 3 0 0 1 3-3 3 3 0 0 1 3 3 3 3 0 0 1-3 3Z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var media,input,key,value,palette=__md_get("__palette");if(palette&&palette.color){"(prefers-color-scheme)"===palette.color.media&&(media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']"),palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent"));for([key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Buscar" placeholder="Buscar" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Pesquisar">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Limpar" aria-label="Limpar" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Inicializando a pesquisa
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+    
+      
+<nav class="md-tabs" aria-label="Abas" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../.." class="md-tabs__link">
+        
+  
+    
+  
+  Apresentação Prezi
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../../fundamentos_de_SO/visao_geral/" class="md-tabs__link">
+          
+  
+  FSO
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--lifted md-nav--integrated" aria-label="Navegação" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="UNB - Engenharia de Software" class="md-nav__button md-logo" aria-label="UNB - Engenharia de Software" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    UNB - Engenharia de Software
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Apresentação Prezi
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+      
+        
+        
+      
+      
+    
+    
+      
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    FSO
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            FSO
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../fundamentos_de_SO/visao_geral/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Visão Geral de um computador
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../fundamentos_de_SO/classificacoes_SO/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Classificações dos SO
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../fundamentos_de_SO/estrutura_kernel/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Estrutura dos Sistema Operacional
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Processos
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    Processos
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Índice">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Índice
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#definicao" class="md-nav__link">
+    <span class="md-ellipsis">
+      Definição
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#elementos-de-um-processo" class="md-nav__link">
+    <span class="md-ellipsis">
+      Elementos de um processo
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#classificacao-dos-modelos" class="md-nav__link">
+    <span class="md-ellipsis">
+      Classificação dos modelos
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#heavyweight" class="md-nav__link">
+    <span class="md-ellipsis">
+      Heavyweight
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#inicializar-do-so" class="md-nav__link">
+    <span class="md-ellipsis">
+      Inicializar do SO
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#criacao-de-processo-no-unix" class="md-nav__link">
+    <span class="md-ellipsis">
+      Criação de processo no Unix
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#condicoes-de-termino-de-processos" class="md-nav__link">
+    <span class="md-ellipsis">
+      Condições de término de processos:
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hierarquia-de-processos" class="md-nav__link">
+    <span class="md-ellipsis">
+      Hierarquia de processos
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#estados-dos-processos" class="md-nav__link">
+    <span class="md-ellipsis">
+      Estados dos processos
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cpu-bound-e-io-bound" class="md-nav__link">
+    <span class="md-ellipsis">
+      CPU Bound e I/O Bound
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#implementacao-de-processos" class="md-nav__link">
+    <span class="md-ellipsis">
+      Implementação de processos
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Implementação de processos">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#troca-de-contexto" class="md-nav__link">
+    <span class="md-ellipsis">
+      Troca de contexto:
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Troca de contexto:">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagrama-temporal" class="md-nav__link">
+    <span class="md-ellipsis">
+      Diagrama temporal
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#escalonador-de-processos" class="md-nav__link">
+    <span class="md-ellipsis">
+      Escalonador de Processos
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Escalonador de Processos">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#sistemas-preemptivos" class="md-nav__link">
+    <span class="md-ellipsis">
+      Sistemas preemptivos:
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sistemas-cooperativos" class="md-nav__link">
+    <span class="md-ellipsis">
+      Sistemas cooperativos:
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#criterios-do-escalonador" class="md-nav__link">
+    <span class="md-ellipsis">
+      Critérios do Escalonador
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#algoritimos-classicos-de-escalonamento" class="md-nav__link">
+    <span class="md-ellipsis">
+      Algoritimos clássicos de escalonamento
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Algoritimos clássicos de escalonamento">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#first-come-first-servedfcfs" class="md-nav__link">
+    <span class="md-ellipsis">
+      First Come First Served(FCFS)
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="First Come First Served(FCFS)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#vantagens" class="md-nav__link">
+    <span class="md-ellipsis">
+      Vantagens
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#desvantagens" class="md-nav__link">
+    <span class="md-ellipsis">
+      Desvantagens
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#round-robin" class="md-nav__link">
+    <span class="md-ellipsis">
+      Round-Robin
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#escalonamento-com-prioridades" class="md-nav__link">
+    <span class="md-ellipsis">
+      Escalonamento com prioridades
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Escalonamento com prioridades">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#estatica" class="md-nav__link">
+    <span class="md-ellipsis">
+      Estática
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dinamica" class="md-nav__link">
+    <span class="md-ellipsis">
+      Dinâmica
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#shortest-job-first" class="md-nav__link">
+    <span class="md-ellipsis">
+      Shortest Job First
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Shortest Job First">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#vantagens_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Vantagens
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#desvatagens" class="md-nav__link">
+    <span class="md-ellipsis">
+      Desvatagens
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#threads" class="md-nav__link">
+    <span class="md-ellipsis">
+      Threads
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Threads">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#definicao_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Definição:
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+<h1 id="processos">Processos</h1>
+<h2 id="definicao">Definição</h2>
+<ul>
+<li>
+<p>Um processo é um programa em execução acompanhando de valores de tempo de execução</p>
+</li>
+<li>
+<p>O processo deve ser visto como uma unidade de contexto, ou seja, um contêiner de recursos utilizados por uma ou mais tarefas para sua execução: áreas de memória (código, dados, pilha), informações de contexto e descritores de recursos
+do núcleo (arquivos abertos, conexões de rede, etc).</p>
+</li>
+</ul>
+<p><img alt="Processo na maquina" src="../../img/processos/processos.png" /></p>
+<h2 id="elementos-de-um-processo">Elementos de um processo</h2>
+<ul>
+<li>Código executável</li>
+<li>Pilha de execução: contendo valores de variáveis locais</li>
+<li>Apontador para pilha: registrador da CPU que
+armazena em qual área de memória está a pilha</li>
+<li>Contador de programa: registrador da CPU que
+armazena a próxima instrução a ser executada</li>
+<li>Valores dos registradores gerais da máquina</li>
+</ul>
+<h2 id="classificacao-dos-modelos">Classificação dos modelos</h2>
+<ul>
+<li>
+<p>Processos quanto ao custo de troca de contexto e de manutenção</p>
+</li>
+<li>
+<p>Heavyweight(Processo tradicional)</p>
+</li>
+<li>Lightweight(threads)</li>
+</ul>
+<h2 id="heavyweight">Heavyweight</h2>
+<ul>
+<li>O processo é composto tanto pelo ambiente como pela a execução</li>
+</ul>
+<p>Os processos são criados:</p>
+<ul>
+<li>Início do sistema</li>
+<li>Execução de uma chamada ao sistema de criação de processo por um processo em execução</li>
+<li>Requisição do usuário</li>
+<li>Início de um job de lote</li>
+</ul>
+<h2 id="inicializar-do-so">Inicializar do SO</h2>
+<ul>
+<li>
+<p>Alguns executam em primeiro plano e interagem
+com usuários</p>
+</li>
+<li>
+<p>Outros executam em segundo plano: chamados
+de daemons</p>
+</li>
+</ul>
+<p>Daemons: é um processo em segundo plano que executa tarefas específicas de forma autônoma e contínua, sem a necessidade de interação direta com o usuário.</p>
+<ul>
+<li>Geralmente os processos são criados por outro</li>
+</ul>
+<p>Hierarquia em árvore:</p>
+<p><img alt="Hierarquia em árvore" src="../../img/processos/processos_arvores.png" /></p>
+<h2 id="criacao-de-processo-no-unix">Criação de processo no Unix</h2>
+<pre><code>fork();
+</code></pre>
+<p><img alt="Fork" src="../../img/processos/processo_fork.png" /></p>
+<ul>
+<li>Clone idêntico ao processo que chamou</li>
+<li>Normalmente, executa execve depois da chamada para mudar o "programa" em execução</li>
+</ul>
+<h2 id="condicoes-de-termino-de-processos">Condições de término de processos:</h2>
+<ul>
+<li>Saída normal (voluntária)</li>
+<li>Saída por erro (voluntária)</li>
+<li>Erro fatal (involuntário)</li>
+<li>Cancelamento por outro processo (involuntário)</li>
+</ul>
+<h2 id="hierarquia-de-processos">Hierarquia de processos</h2>
+<ul>
+<li>Quando um processo é criado por outro, eles continuam assoaciados.</li>
+<li>Em alguns sistemas, é possivel listar o ppid (parent pid)</li>
+<li>Todos os processos são filhos ou descendentes dos processos init.</li>
+</ul>
+<h2 id="estados-dos-processos">Estados dos processos</h2>
+<p>Estados de um processo: Rodando, Bloqueado, Pronto</p>
+<ul>
+<li>Quando o processo está esperando um evento, dizemos que ele está bloqueado:</li>
+</ul>
+<p>Leitura em disco -&gt; Leitura de rede -&gt; Esperando entrada de usuário</p>
+<p>Representação de estados de um processo</p>
+<p><img alt="Estados" src="../../img/processos/processo_estados.png" /></p>
+<p>(1) O processo bloqueia-se aguardando uma entrada</p>
+<p>(2) O evento aguardado pelo processo ocorreu, pode-se iniciar a executar.</p>
+<p>(3) O tempo de posse do processador esgotou-se</p>
+<p>(4) O processo é escolhido pelo escalonador para executar</p>
+<h2 id="cpu-bound-e-io-bound">CPU Bound e I/O Bound</h2>
+<ul>
+<li>
+<p>CPU Bound: são tarefas que usam intensivamente o processador na maior parte de sua existência. Essas tarefas passam a maior parte do tempo nos estados pronta ou executando.</p>
+</li>
+<li>
+<p>I/O Bound: São tarefas que dependem muito mais dos dispositivos de entrada/saída que do processador. Essas tarefas ficam boa parte de suas existências no estado suspenso, aguardando respostas às suas solicitações de leitura e/ou escrita de dados nos dispositivos de entrada/saída.</p>
+</li>
+</ul>
+<h2 id="implementacao-de-processos">Implementação de processos</h2>
+<h3 id="troca-de-contexto">Troca de contexto:</h3>
+<ul>
+<li>
+<p>Operação de salvamento dos registradores de um processo e posterior restauração de registradores de outro processo.</p>
+</li>
+<li>
+<p>A troca de contexto permite a troca de processador entre os processos</p>
+</li>
+<li>
+<p>Cada dispositivo de E/S possui possui uma área
+de memória chamada vetor de interrupções</p>
+</li>
+</ul>
+<h4 id="diagrama-temporal">Diagrama temporal</h4>
+<p>Principais passos envolvidos em uma troca de contexto:</p>
+<ol>
+<li>Uma tarefa A está executando;</li>
+<li>Ocorre uma interrupção do temporizador do hardware e a execução desvia para
+a rotina de tratamento, no núcleo;</li>
+<li>A rotina de tratamento ativa o despachante;</li>
+<li>O despachante salva o estado da tarefa A em seu TCB e atualiza suas informações
+de gerência;</li>
+<li>Opcionalmente, o despachante consulta o escalonador para escolher a próxima
+tarefa a ativar (B);</li>
+<li>O despachante resgata o estado da tarefa B de seu TCB e a reativa.</li>
+</ol>
+<p><img alt="Diagrama Troca de contexto" src="../../img/processos/processo_diagrama.png" /></p>
+<h2 id="escalonador-de-processos">Escalonador de Processos</h2>
+<ul>
+<li>
+<p>O Sistema Operacional é responsável por gerenciar o(s) recurso(s) de processamento de um computador por meio de sua atividade chamada <strong>Escalonador de Processador</strong></p>
+</li>
+<li>
+<p>Os escalonadores podem ser classificados como Preemptivos ou Cooperativo(Não-Preemptivos).</p>
+</li>
+</ul>
+<p>A preempção é a suspensão temporária da execução de um processo.</p>
+<h3 id="sistemas-preemptivos">Sistemas preemptivos:</h3>
+<ul>
+<li>
+<p>Nestes sistemas uma tarefa pode perder o processador caso termine seu quantum de tempo, caso execute uma chamada de sistema ou caso ocorra uma interrupção que acorde uma tarefa mais prioritária (que estava suspensa aguardando um evento). A cada interrupção, exceção ou chamada de sistema, o escalonador reavalia todas as tarefas da fila de prontas e decide se mantém ou substitui a tarefa atualmente em execução.</p>
+</li>
+<li>
+<p>Cada Processo tem seu tempo(time-slice) de posse do processador</p>
+</li>
+<li>
+<p>O controle de tempo de execução é feito por interrupção</p>
+</li>
+</ul>
+<h3 id="sistemas-cooperativos">Sistemas cooperativos:</h3>
+<ul>
+<li>
+<p>A tarefa em execução permanece no processador tanto quanto possível, só liberando o mesmo caso termine de executar, solicite uma operação de entrada/saída ou libere explicitamente o processador1, voltando à fila de tarefas prontas. Esses sistemas são chamados de cooperativos por exigir a cooperação das tarefas entre si na gestão do processador, para que todas possam executar.</p>
+</li>
+<li>
+<p>Nenhuma entidade externa “tira a CPU à força”
+do processo</p>
+</li>
+</ul>
+<h3 id="criterios-do-escalonador">Critérios do Escalonador</h3>
+<ul>
+<li>
+<p>Justiça: garantir que todos os processos terão
+chances justas de uso de processador.</p>
+</li>
+<li>
+<p>Eficiência: quando existir trabalho a fazer, o
+processador deve estar ocupado.</p>
+</li>
+<li>
+<p>Minimizar o tempo de resposta: reduzindo o
+tempo dos usuários interativos, reduz o tempo entre
+a entrada de usuário e a resposta dada (não
+considera tempo total de execução).</p>
+</li>
+<li>
+<p>Minimizar o turnaround: reduzir o tempo desde
+o lançamento do processo até seu término. Soma de:
+tempo de espera por recursos (memória,
+processador, E/S) e tempo de utilização da CPU.
+Mais utilizado em processamento batch.</p>
+</li>
+<li>
+<p>Minimizar waiting time: Esse critério visa
+minimizar o tempo de espera pela CPU</p>
+</li>
+<li>
+<p>Maximizar throughtput: Maximizar o
+número de tarefas executados em uma unidade
+de tempo</p>
+</li>
+</ul>
+<h2 id="algoritimos-classicos-de-escalonamento">Algoritimos clássicos de escalonamento</h2>
+<p>Sendo eles: First Come First Served, Round-Robin, Prioridades, Shorteste Job First</p>
+<h3 id="first-come-first-servedfcfs">First Come First Served(FCFS)</h3>
+<ul>
+<li>O processo obtém a CPU de acordo com a ordem da chegada das solicitações. o processo que pede a CPU primeiro, obtém a CPU em primeiro lugar</li>
+</ul>
+<p><img alt="First Come First Served" src="../../img/processos/fcfs.png" /></p>
+<ul>
+<li>
+<p>O escalonador FCFS é <strong>Não-preemptivo</strong></p>
+</li>
+<li>
+<p>Um processo CPU/bound pode fazer com que vários processos esperem por um tempo indeterminado.</p>
+</li>
+</ul>
+<h4 id="vantagens">Vantagens</h4>
+<ul>
+<li>Simples de ser implementado</li>
+<li>Algoritmo efieciente: CPU sempre é utilizada</li>
+</ul>
+<h4 id="desvantagens">Desvantagens</h4>
+<ul>
+<li>Impossibilidade de se prever quando um processo vai iniciar</li>
+<li>Tempo de espera não é priorizado</li>
+</ul>
+<h3 id="round-robin">Round-Robin</h3>
+<ul>
+<li>Cada processo tem o direito de usar o processador por um intervalo de tempo pré-definido. Este intervalo de tempo é denominado quantum</li>
+</ul>
+<p><img alt="Round-Robin" src="../../img/processos/round_robin.png" /></p>
+<ul>
+<li>Algoritmo por alternância circular</li>
+</ul>
+<p><img alt="Round-Robin fila" src="../../img/processos/round_fila.png" /></p>
+<ul>
+<li>
+<p>Algoritmo justo</p>
+</li>
+<li>
+<p>Dificuldade de determinar bom quantum para ser atribuído;</p>
+</li>
+<li>
+<p>Sendo assim, Quantum muito longo: FCFS e Quantum muito curto: perda de vários requisitos, tais como eficiência.</p>
+</li>
+<li>
+<p>Para o algoritmo ser eficiente é necessário que o tempo de troca de contexto seja consideravelmente menor que a execução do programa</p>
+</li>
+</ul>
+<h3 id="escalonamento-com-prioridades">Escalonamento com prioridades</h3>
+<ul>
+<li>
+<p>Cada processo é atribuída uma prioridade. Processos com prioridade maior rodam primeiro</p>
+</li>
+<li>
+<p>Prioridades podem ser atribuídas de duas
+formas: estática ou dinâmica</p>
+</li>
+</ul>
+<h4 id="estatica">Estática</h4>
+<ul>
+<li>Os processos são divididos em classes e a cada classe é atribuída uma prioridade. A cada prioridade existe uma fila de prontos associada</li>
+</ul>
+<p><img alt="Prioridade Fixa" src="../../img/processos/prioridade_fixa.png" /></p>
+<h4 id="dinamica">Dinâmica</h4>
+<ul>
+<li>
+<p>O sistema analisa o comportamento dos processos e atribui prioridades favorecendo um certo tipo de comportamento</p>
+</li>
+<li>
+<p>Processos I/O devem possuir prioridade alta</p>
+</li>
+<li>Prioridade dinâmica: 1/f, onde f é a fração do
+quantum de tempo usada na última rodada do
+processo</li>
+</ul>
+<h3 id="shortest-job-first">Shortest Job First</h3>
+<ul>
+<li>Dado um conjunto de processos, execute os de menor tempo de execução antes.</li>
+</ul>
+<p><img alt="Shortest Job First" src="../../img/processos/first_job.png" /></p>
+<h4 id="vantagens_1">Vantagens</h4>
+<ul>
+<li>Projetado para sistemas em lotes</li>
+<li>Diminui o tempo de turnaround(tempo de
+lançamento do processo até seu término)</li>
+</ul>
+<h4 id="desvatagens">Desvatagens</h4>
+<ul>
+<li>Requer que o tempo total de execução do
+processo seja conhecido antes do seu início</li>
+</ul>
+<h2 id="threads">Threads</h2>
+<h3 id="definicao_1">Definição:</h3>
+<ul>
+<li>Uma thread é definida como sendo um fluxo de execução independente. Um processo pode conter uma ou mais threads, cada uma executando seu próprio código e compartilhando recursos com as demais threads localizadas no mesmo processo.</li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12Z"/></svg>
+  Voltar ao topo
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Rodapé" >
+        
+          
+          <a href="../../fundamentos_de_SO/estrutura_kernel/" class="md-footer__link md-footer__link--prev" aria-label="Anterior: Estrutura dos Sistema Operacional">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Anterior
+              </span>
+              <div class="md-ellipsis">
+                Estrutura dos Sistema Operacional
+              </div>
+            </div>
+          </a>
+        
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.tabs", "navigation.tabs.sticky", "navigation.path", "navigation.prune", "navigation.top", "navigation.footer", "navigations.indexes", "content.code.copy", "toc.integrate", "search.suggest", "search.highlight"], "search": "../../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copiado para \u00e1rea de transfer\u00eancia", "clipboard.copy": "Copiar para \u00e1rea de transfer\u00eancia", "search.result.more.one": "Mais 1 nesta p\u00e1gina", "search.result.more.other": "Mais # nesta p\u00e1gina", "search.result.none": "Nenhum resultado encontrado", "search.result.one": "1 resultado encontrado", "search.result.other": "# resultados encontrados", "search.result.placeholder": "Digite para iniciar a busca", "search.result.term.missing": "Ausente", "select.version": "Selecione a vers\u00e3o"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.3220b9d7.min.js"></script>
+      
+    
+  </body>
+</html>

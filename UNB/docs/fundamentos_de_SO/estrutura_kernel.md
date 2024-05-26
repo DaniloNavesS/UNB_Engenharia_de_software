@@ -20,7 +20,7 @@ Sendo eles, Sistemas Monolíticos, Sistema em camadas, Máquinas Virtuais, Micro
 
 - Escabilidade: Como todo o núcleo está unido, o sistema pode ser fortemente interdependentes, tornando a manuteção e a evolução mais complexa a cada adição de funcionalidades.
 
-![Estrutura de monolítico](/img/fundamentos_de_SO/monolitico.png)
+![Estrutura de monolítico](../img/fundamentos_de_SO/monolitico.png)
 
 ### Sistema em camadas
 
@@ -32,7 +32,7 @@ Lento desempenho: Por causa de cada camada precisar se comunicar, acaba deixando
 
 Divisão-não-clara: Como muitos recursos tinha co-relação, era dificil separar de maneira óbvia as camadas
 
-![Estrutura em camadas](/img/fundamentos_de_SO/so_camadas.png)
+![Estrutura em camadas](../img/fundamentos_de_SO/so_camadas.png)
 
 ### Micro-kernel
 
@@ -51,7 +51,7 @@ Implementação: Algumas partes do sistema operacional é impossível implementa
 Difícil implementação.
 
 
-![Abordagem micro-kernel](/img/fundamentos_de_SO/micro.png)
+![Abordagem micro-kernel](../img/fundamentos_de_SO/micro.png)
 
 
 ### Exo-kernel
