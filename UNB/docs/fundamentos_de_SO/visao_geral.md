@@ -5,8 +5,8 @@ Sistema Operacional é programa ou conjunto de programas.
 - Hardware: componentes físicos
 - Software: conjunto de todos os programas
 
-![Visão da Estrutura](../../img/visao_geral/visao_SO.png)
 
+![Visão da Estrutura](/img/fundamentos_de_SO/visao.png)
 
 Tanenbaum: a maioria dos SOs possuem dois
 modos de operação: modo protegido (modo kernel)
@@ -26,7 +26,7 @@ e modo usuário
 
 - Alguns dizem que o sistema operacional é interface da máquina.
 
-obs: Maquina extendida = Visão mais fácil de ver os recursos da máquina e esconder tal complexidade do hardware.
+OBS: Maquina extendida tem a função de facilitar a visão sobre os recursos da máquina e esconder tal complexidade do hardware.
 
 # Computador
 
@@ -45,11 +45,3 @@ Exemeplos típicos de gerenciamentos
 - Para todo recurso, o SO deve: Manter informações sobre o resumo(endereço, estados), Decidir quem pode acessar o recurso, Alocar o recurso, etc.
 
 - E importante que o gerenciamento seja eficiente, maximize a utilização dos recursos e ter um tempo previsível de resposta.
-
-
-
-
-
-
-
-

@@ -63,7 +63,30 @@ Ex: Windows XP e posteriores, Linux 2.6 e posteriores
 
 Ex de classicação de múltiplos processadores: Sistemas operacionais de computadores pessoais, Sistemas operacionais de servidores, Sistemas operacionais embarcados
 
-### 
+### Computadores Pessoais
 
-- 
+- Utilizado apenas por um único usuário
+
+- Computadores domésticos
+
+EX: Windows 10, ArchLinux, Debian
+
+### Sistema Operacionais de Servidores
+
+- Sistemas cujo objetivo é servir o maior número
+de usuários ao mesmo tempo
+
+- Pode incluir diferentes tipos de serviços:
+servidor web, e-mail, servidor de autenticação,
+servidor de backup, etc.
+
+Ex: Ubuntu Server, Cent OS
+
+### Sistema Operacionais Embarcados
+
+- Sistemas operacionais que funcionam em
+equipamentos que não aparentam ser um computador:
+micro-ondas, TV, celulares e smartphones
+
+EX: Android, IOS
 

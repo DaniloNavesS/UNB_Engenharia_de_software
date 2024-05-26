@@ -5,7 +5,8 @@ nav:
   - FSO:
     - Visão Geral de um computador: fundamentos_de_SO/visao_geral.md
     - Classificações dos SO: fundamentos_de_SO/classificacoes_SO.md
-
+    - Estrutura dos Sistema Operacional: fundamentos_de_SO/estrutura_kernel.md
+    - Processos: processos/processos.md
 
 theme:
   name: material
@@ -31,7 +32,6 @@ theme:
   nav_style: dark
   language: pt
   repo: fontawesome/brands/github
-  logo: img/logo.png 
 
   palette:
     - scheme: light blue
