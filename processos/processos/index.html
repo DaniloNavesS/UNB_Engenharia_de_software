@@ -810,7 +810,7 @@
 do núcleo (arquivos abertos, conexões de rede, etc).</p>
 </li>
 </ul>
-<p><img alt="Processo na maquina" src="./img/processos/processos.png" /></p>
+<p><img alt="Processo na maquina" src="../../img/processos/processos.png" /></p>
 <h2 id="elementos-de-um-processo">Elementos de um processo</h2>
 <ul>
 <li>Código executável</li>
@@ -858,11 +858,11 @@ de daemons</p>
 <li>Geralmente os processos são criados por outro</li>
 </ul>
 <p>Hierarquia em árvore:</p>
-<p><img alt="Hierarquia em árvore" src="img/processos/processos_arvores.png" /></p>
+<p><img alt="Hierarquia em árvore" src="../../img/processos/processos_arvores.png" /></p>
 <h2 id="criacao-de-processo-no-unix">Criação de processo no Unix</h2>
 <pre><code>fork();
 </code></pre>
-<p><img alt="Fork" src="/img/processos/processo_fork.png" /></p>
+<p><img alt="Fork" src="../../img/processos/processo_fork.png" /></p>
 <ul>
 <li>Clone idêntico ao processo que chamou</li>
 <li>Normalmente, executa execve depois da chamada para mudar o "programa" em execução</li>
@@ -887,7 +887,7 @@ de daemons</p>
 </ul>
 <p>Leitura em disco -&gt; Leitura de rede -&gt; Esperando entrada de usuário</p>
 <p>Representação de estados de um processo</p>
-<p><img alt="Estados" src="/img/processos/processo_estados.png" /></p>
+<p><img alt="Estados" src="../../img/processos/processo_estados.png" /></p>
 <p>(1) O processo bloqueia-se aguardando uma entrada</p>
 <p>(2) O evento aguardado pelo processo ocorreu, pode-se iniciar a executar.</p>
 <p>(3) O tempo de posse do processador esgotou-se</p>
@@ -928,7 +928,7 @@ de gerência;</li>
 tarefa a ativar (B);</li>
 <li>O despachante resgata o estado da tarefa B de seu TCB e a reativa.</li>
 </ol>
-<p><img alt="Diagrama Troca de contexto" src="/img/processos/processo_diagrama.png" /></p>
+<p><img alt="Diagrama Troca de contexto" src="../../img/processos/processo_diagrama.png" /></p>
 <h2 id="escalonador-de-processos">Escalonador de Processos</h2>
 <ul>
 <li>
@@ -1000,7 +1000,7 @@ de tempo</p>
 <ul>
 <li>O processo obtém a CPU de acordo com a ordem da chegada das solicitações. o processo que pede a CPU primeiro, obtém a CPU em primeiro lugar</li>
 </ul>
-<p><img alt="First Come First Served" src="/img/processos/fcfs.png" /></p>
+<p><img alt="First Come First Served" src="../../img/processos/fcfs.png" /></p>
 <ul>
 <li>
 <p>O escalonador FCFS é <strong>Não-preemptivo</strong></p>
@@ -1023,11 +1023,11 @@ de tempo</p>
 <ul>
 <li>Cada processo tem o direito de usar o processador por um intervalo de tempo pré-definido. Este intervalo de tempo é denominado quantum</li>
 </ul>
-<p><img alt="Round-Robin" src="/img/processos/round_robin.png" /></p>
+<p><img alt="Round-Robin" src="../../img/processos/round_robin.png" /></p>
 <ul>
 <li>Algoritmo por alternância circular</li>
 </ul>
-<p><img alt="Round-Robin fila" src="/img/processos/round_fila.png" /></p>
+<p><img alt="Round-Robin fila" src="../../img/processos/round_fila.png" /></p>
 <ul>
 <li>
 <p>Algoritmo justo</p>
@@ -1056,7 +1056,7 @@ formas: estática ou dinâmica</p>
 <ul>
 <li>Os processos são divididos em classes e a cada classe é atribuída uma prioridade. A cada prioridade existe uma fila de prontos associada</li>
 </ul>
-<p><img alt="Prioridade Fixa" src="/img/processos/prioridade_fixa.png" /></p>
+<p><img alt="Prioridade Fixa" src="../../img/processos/prioridade_fixa.png" /></p>
 <h4 id="dinamica">Dinâmica</h4>
 <ul>
 <li>

@@ -618,7 +618,7 @@
 <p>Escabilidade: Como todo o núcleo está unido, o sistema pode ser fortemente interdependentes, tornando a manuteção e a evolução mais complexa a cada adição de funcionalidades.</p>
 </li>
 </ul>
-<p><img alt="Estrutura de monolítico" src="/img/fundamentos_de_SO/monolitico.png" /></p>
+<p><img alt="Estrutura de monolítico" src="../../img/fundamentos_de_SO/monolitico.png" /></p>
 <h3 id="sistema-em-camadas">Sistema em camadas</h3>
 <ul>
 <li>Uma forma mais elegante de estruturar um sistema operacional faz uso da noção de camadas: a camada mais baixa realiza a interface com o hardware, enquanto as camadas intermediárias proveem níveis de abstração e gerência cada vez mais sofisticados. Por fim, a camada superior define a interface do núcleo para as aplicações (as chamadas de sistema). As camadas têm níveis de privilégio decrescentes: a camada inferior tem acesso total ao hardware, enquanto a superior tem acesso bem mais restrito.</li>
@@ -626,7 +626,7 @@
 <h4 id="desvantagens_1">Desvantagens</h4>
 <p>Lento desempenho: Por causa de cada camada precisar se comunicar, acaba deixando lento a comunicação de por exemplo, entrada do teclado.</p>
 <p>Divisão-não-clara: Como muitos recursos tinha co-relação, era dificil separar de maneira óbvia as camadas</p>
-<p><img alt="Estrutura em camadas" src="/img/fundamentos_de_SO/so_camadas.png" /></p>
+<p><img alt="Estrutura em camadas" src="../../img/fundamentos_de_SO/so_camadas.png" /></p>
 <h3 id="micro-kernel">Micro-kernel</h3>
 <ul>
 <li>
@@ -641,7 +641,7 @@
 <h4 id="desvantagens_2">Desvantagens</h4>
 <p>Implementação: Algumas partes do sistema operacional é impossível implementar esse esquema -&gt; carragar comandos nos registradores físicos.</p>
 <p>Difícil implementação.</p>
-<p><img alt="Abordagem micro-kernel" src="/img/fundamentos_de_SO/micro.png" /></p>
+<p><img alt="Abordagem micro-kernel" src="../../img/fundamentos_de_SO/micro.png" /></p>
 <h3 id="exo-kernel">Exo-kernel</h3>
 <ul>
 <li>
