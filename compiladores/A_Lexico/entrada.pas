@@ -8,5 +8,6 @@ begin
     writeln('teste');
 end.
 
+(*comentario
 
-(*comentario*)
+*)
