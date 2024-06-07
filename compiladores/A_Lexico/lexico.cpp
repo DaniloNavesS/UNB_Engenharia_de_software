@@ -30,7 +30,7 @@ int main(int argc, char *argv[])
     }
 
     std::string linha_formatado = std::regex_replace(arquivo_inteiro, regex, "");
-    std::cout << linha_formatado;
+    std::cout << linha_formatado << std::endl;
 
     return 0;
 }
