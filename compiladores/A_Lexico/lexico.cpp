@@ -2,35 +2,31 @@
 #include <fstream>
 #include <regex>
 
-enum tokens_identificadores {
-    LETRA,
-    DIGITO,
-    SIMBOLO_ESPECIAL,
-    COMPOSTO_ESPECIAL,
-    KEYWORD
-};
+int main(int argc, char *argv[]) {
+    std::regex regex("(\\(\\*.*\\*\\))");
+    std::regex regex_quebraLinha("(\n)|(\t)|(\\s+)");
 
-int main(int argc, char *argv[])
-{
-    std::regex regex("\\(\\*.*\\*\\)");
-    //Arquivos
     std::string file_pascal = argv[1];
+
     std::ifstream input_compilador(file_pascal);
-    std::string arquivo_inteiro;
-    if (input_compilador.is_open())
-    {
+    std::string arquivo_completo = "";
+
+    if (input_compilador.is_open()) {
         std::string linha;
-        while (std::getline(input_compilador, linha))
-        {
-            arquivo_inteiro += linha;
+
+        while (std::getline(input_compilador, linha)) {
+            arquivo_completo += linha + '\n';
         }
-    input_compilador.close();
+
+        input_compilador.close();
     } else {
         std::cerr << "Erro ao abrir o arquivo!" << std::endl;
+        return 0;
     }
-
-    std::string linha_formatado = std::regex_replace(arquivo_inteiro, regex, "");
-    std::cout << linha_formatado << std::endl;
+    
+    arquivo_completo = std::regex_replace(arquivo_completo, regex, "");
+    arquivo_completo = std::regex_replace(arquivo_completo, regex_quebraLinha, "");
+    std::cout << arquivo_completo << std::endl;
 
     return 0;
 }
