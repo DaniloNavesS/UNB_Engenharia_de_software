@@ -3,6 +3,7 @@
 
 int main(int argc, char *argv[])
 {
+
     std::string file_pascal = argv[1];
 
     std::ifstream input_compilador(file_pascal);
