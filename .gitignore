@@ -1,0 +1,5 @@
+# Ignora o site do MkDocs
+site/*
+
+# Ignora a pasta .vscode
+.vscode/*
