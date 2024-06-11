@@ -24,8 +24,8 @@ int main(int argc, char *argv[]) {
         return 0;
     }
     
-    arquivo_completo = std::regex_replace(arquivo_completo, regex, "");
     arquivo_completo = std::regex_replace(arquivo_completo, regex_quebraLinha, "");
+    arquivo_completo = std::regex_replace(arquivo_completo, regex, "");
     std::cout << arquivo_completo << std::endl;
 
     return 0;
