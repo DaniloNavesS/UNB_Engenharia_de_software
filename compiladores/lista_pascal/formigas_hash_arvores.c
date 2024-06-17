@@ -22,19 +22,19 @@ Alimento *buscarAlimento(Alimento *raiz, unsigned long id);
 long int funcao_hash(long int id) { return id % HASH_SIZE; }
 
 unsigned long string_para_numero(unsigned char *key, size_t length) {
-    unsigned long hash = 0;
-    size_t i;
+  unsigned long hash = 0;
+  size_t i;
 
-    for (i = 0; i < length; ++i) {
-        hash += key[i];
-        hash += (hash << 10);
-        hash ^= (hash >> 6);
-    }
-    hash += (hash << 3);
-    hash ^= (hash >> 11);
-    hash += (hash << 15);
+  for (i = 0; i < length; ++i) {
+    hash += key[i];
+    hash += (hash << 10);
+    hash ^= (hash >> 6);
+  }
+  hash += (hash << 3);
+  hash ^= (hash >> 11);
+  hash += (hash << 15);
 
-    return hash;
+  return hash;
 }
 
 void inserirHash(long int id, unsigned long alimento) {
@@ -52,9 +52,9 @@ void inserirHash(long int id, unsigned long alimento) {
 
   if (Formiga[pos] != NULL) {
 
-     while (Formiga[pos + 1 ] != NULL && Formiga[pos]->id != id) {
-       pos = (pos + 1) % HASH_SIZE;
-     }
+    while (Formiga[pos + 1] != NULL && Formiga[pos]->id != id) {
+      pos = (pos + 1) % HASH_SIZE;
+    }
 
     if (buscarAlimento(Formiga[pos]->alimento, alimento) == NULL) {
       Formiga[pos]->alimento =
@@ -100,14 +100,12 @@ int main() {
 
   while (scanf("%ld %s", &id, alimento) != EOF) {
 
-
-    if (id == 820634850)
-    {
+    if (id == 820634850) {
       id = 820634851;
     }
-    
-    unsigned long string_numero = string_para_numero(alimento, strlen(alimento));
 
+    unsigned long string_numero =
+        string_para_numero(alimento, strlen(alimento));
 
     inserirHash(id, string_numero);
   }

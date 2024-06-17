@@ -42,7 +42,8 @@ void inserirHash(int id, unsigned long alimento) {
   novo->alimento->esq = NULL;
   novo->prox = NULL;
 
-  // Insere o novo elemento no início da lista encadeada na posição da tabela hash
+  // Insere o novo elemento no início da lista encadeada na posição da tabela
+  // hash
   if (Formiga[pos] == NULL) {
     Formiga[pos] = novo;
   } else {
