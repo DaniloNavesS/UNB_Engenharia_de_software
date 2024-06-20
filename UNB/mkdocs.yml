@@ -7,6 +7,8 @@ nav:
     - Classificações dos SO: fundamentos_de_SO/classificacoes_SO.md
     - Estrutura dos Sistema Operacional: fundamentos_de_SO/estrutura_kernel.md
     - Processos: processos/processos.md
+  - Compiladores:
+    - Analisador Sintático: compiladores/sintantico.md
 
 theme:
   name: material

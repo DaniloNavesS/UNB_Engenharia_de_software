@@ -9,10 +9,8 @@
       
       
       
-        <link rel="prev" href="../classificacoes_SO/">
+        <link rel="prev" href="../../processos/processos/">
       
-      
-        <link rel="next" href="../../processos/processos/">
       
       
       <link rel="icon" href="../../assets/images/favicon.png">
@@ -20,7 +18,7 @@
     
     
       
-        <title>Estrutura dos Sistema Operacional - UNB - Engenharia de Software</title>
+        <title>Analisador Sintático - UNB - Engenharia de Software</title>
       
     
     
@@ -72,7 +70,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#estrutura-de-kernel" class="md-skip">
+        <a href="#analisadores-sintaticos-ascendentes" class="md-skip">
           Ir para o conteúdo
         </a>
       
@@ -108,7 +106,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Estrutura dos Sistema Operacional
+              Analisador Sintático
             
           </span>
         </div>
@@ -214,13 +212,11 @@
         
   
   
-    
-  
   
     
     
-      <li class="md-tabs__item md-tabs__item--active">
-        <a href="../visao_geral/" class="md-tabs__link">
+      <li class="md-tabs__item">
+        <a href="../../fundamentos_de_SO/visao_geral/" class="md-tabs__link">
           
   
   FSO
@@ -234,11 +230,13 @@
         
   
   
+    
+  
   
     
     
-      <li class="md-tabs__item">
-        <a href="../../compiladores/sintantico/" class="md-tabs__link">
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="./" class="md-tabs__link">
           
   
   Compiladores
@@ -314,6 +312,48 @@
       
   
   
+  
+  
+    
+    
+    
+      
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../fundamentos_de_SO/visao_geral/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    FSO
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
     
   
   
@@ -334,68 +374,26 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
         
           
-          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
             
   
   <span class="md-ellipsis">
-    FSO
+    Compiladores
   </span>
   
 
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
-          <label class="md-nav__title" for="__nav_2">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3">
             <span class="md-nav__icon md-icon"></span>
-            FSO
+            Compiladores
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../visao_geral/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    Visão Geral de um computador
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../classificacoes_SO/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    Classificações dos SO
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
             
               
                 
@@ -417,7 +415,7 @@
           
   
   <span class="md-ellipsis">
-    Estrutura dos Sistema Operacional
+    Analisador Sintático
   </span>
   
 
@@ -428,7 +426,7 @@
         
   
   <span class="md-ellipsis">
-    Estrutura dos Sistema Operacional
+    Analisador Sintático
   </span>
   
 
@@ -450,38 +448,46 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#definicao" class="md-nav__link">
+  <a href="#parser-lr" class="md-nav__link">
     <span class="md-ellipsis">
-      Definição
+      Parser LR
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Definição">
+    <nav class="md-nav" aria-label="Parser LR">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#sistema-monoliticos" class="md-nav__link">
+  <a href="#tabela-de-desvios" class="md-nav__link">
     <span class="md-ellipsis">
-      Sistema Monolíticos
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Sistema Monolíticos">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#vantagens" class="md-nav__link">
-    <span class="md-ellipsis">
-      Vantagens
+      Tabela de desvios
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#desvantagens" class="md-nav__link">
+  <a href="#tabela-de-acoes" class="md-nav__link">
     <span class="md-ellipsis">
-      Desvantagens
+      Tabela de Ações
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tabelas" class="md-nav__link">
+    <span class="md-ellipsis">
+      Tabelas
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#execucao" class="md-nav__link">
+    <span class="md-ellipsis">
+      Execução
     </span>
   </a>
   
@@ -491,68 +497,21 @@
     </nav>
   
 </li>
-        
-          <li class="md-nav__item">
-  <a href="#sistema-em-camadas" class="md-nav__link">
+      
+        <li class="md-nav__item">
+  <a href="#construcao-de-tabelas" class="md-nav__link">
     <span class="md-ellipsis">
-      Sistema em camadas
+      Construção de Tabelas
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Sistema em camadas">
+    <nav class="md-nav" aria-label="Construção de Tabelas">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#desvantagens_1" class="md-nav__link">
+  <a href="#fecho-transitivo-de-itens" class="md-nav__link">
     <span class="md-ellipsis">
-      Desvantagens
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#micro-kernel" class="md-nav__link">
-    <span class="md-ellipsis">
-      Micro-kernel
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Micro-kernel">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#vantagens_1" class="md-nav__link">
-    <span class="md-ellipsis">
-      Vantagens
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#desvantagens_2" class="md-nav__link">
-    <span class="md-ellipsis">
-      Desvantagens
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#exo-kernel" class="md-nav__link">
-    <span class="md-ellipsis">
-      Exo-kernel
+      Fecho Transitivo de Itens
     </span>
   </a>
   
@@ -572,71 +531,8 @@
 
               
             
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../processos/processos/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    Processos
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
           </ul>
         </nav>
-      
-    </li>
-  
-
-    
-      
-      
-  
-  
-  
-  
-    
-    
-    
-      
-      
-    
-    
-      
-        
-        
-      
-    
-    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
-      
-        
-  
-  
-    <a href="../../compiladores/sintantico/" class="md-nav__link">
-      
-  
-  <span class="md-ellipsis">
-    Compiladores
-  </span>
-  
-
-      
-        <span class="md-nav__icon md-icon"></span>
-      
-    </a>
-  
-
       
     </li>
   
@@ -657,60 +553,104 @@
                   
 
 
-<h1 id="estrutura-de-kernel">Estrutura de Kernel</h1>
-<h2 id="definicao">Definição</h2>
-<p>É de acordo como a estrutura(núcleo) está organizado.</p>
-<p>Sendo eles, Sistemas Monolíticos, Sistema em camadas, Máquinas Virtuais, Micro-kernel(cliente/servidor), Exo-kernel.</p>
-<h3 id="sistema-monoliticos">Sistema Monolíticos</h3>
-<ul>
-<li>O sistema é um "bloco maciço" de código que opera em modo núcleo, com acesso a todos os recursos do hardware e sem restrições de acesso a memória.</li>
-</ul>
-<h4 id="vantagens">Vantagens</h4>
-<ul>
-<li>Desempenho: Qualquer componente pode acessar os demais componente diretamente, pois não há barreiras.</li>
-</ul>
-<h4 id="desvantagens">Desvantagens</h4>
+<h1 id="analisadores-sintaticos-ascendentes">Analisadores Sintáticos Ascendentes</h1>
 <ul>
 <li>
-<p>Problema de Robustez: Como todos os componentes tem privilegio a todo o hardware, caso ocorra um erro, este erro pode se espalhar rapidamente por todo o sistema.</p>
+<p>Analisadores Sintáticos Ascendentes constróem a árvore de derivação da direita para esquerda.</p>
 </li>
 <li>
-<p>Escabilidade: Como todo o núcleo está unido, o sistema pode ser fortemente interdependentes, tornando a manuteção e a evolução mais complexa a cada adição de funcionalidades.</p>
+<p>Destacam-se os LR(left to right)</p>
+</li>
+<li>
+<p>Um analisador ascendente usa reduções.</p>
 </li>
 </ul>
-<p><img alt="Estrutura de monolítico" src="../../img/fundamentos_de_SO/monolitico.png" /></p>
-<h3 id="sistema-em-camadas">Sistema em camadas</h3>
+<p><img alt="Redução x Derivação" src="../../img/compiladores/reducaoXderivacao.png" /></p>
+<h2 id="parser-lr">Parser LR</h2>
+<p>COMPONENTS</p>
+<ol>
+<li>Entrada: Contém alfa;</li>
+<li>Parser: código executável;</li>
+<li>Floresta: estrutura de dados auxiliar;</li>
+<li>Tabela de ações: matriz obtida a partir de G;</li>
+<li>Tabela de Desvios: matriz obtida a partir de G;</li>
+</ol>
+<p>Graficamente</p>
+<p><img alt="Parser LR graficamente" src="../../img/compiladores/parser_LR_grafico.png" /></p>
+<h3 id="tabela-de-desvios">Tabela de desvios</h3>
 <ul>
-<li>Uma forma mais elegante de estruturar um sistema operacional faz uso da noção de camadas: a camada mais baixa realiza a interface com o hardware, enquanto as camadas intermediárias proveem níveis de abstração e gerência cada vez mais sofisticados. Por fim, a camada superior define a interface do núcleo para as aplicações (as chamadas de sistema). As camadas têm níveis de privilégio decrescentes: a camada inferior tem acesso total ao hardware, enquanto a superior tem acesso bem mais restrito.</li>
+<li>Representação de um grafo com uma tabela</li>
+<li>LINHAS = Vértices, COLUNAS = Variáveis e terminais da grámatica</li>
 </ul>
-<h4 id="desvantagens_1">Desvantagens</h4>
-<p>Lento desempenho: Por causa de cada camada precisar se comunicar, acaba deixando lento a comunicação de por exemplo, entrada do teclado.</p>
-<p>Divisão-não-clara: Como muitos recursos tinha co-relação, era dificil separar de maneira óbvia as camadas</p>
-<p><img alt="Estrutura em camadas" src="../../img/fundamentos_de_SO/so_camadas.png" /></p>
-<h3 id="micro-kernel">Micro-kernel</h3>
+<p>EX: Considere a gramática G abaixo e tabela de desvios obtida a partir dela</p>
+<p><img alt="Parser LR graficamente" src="../../img/compiladores/linguagem_G.png" />
+<img alt="Parser LR graficamente" src="../../img/compiladores/Tabela_Desvio_G.png" /></p>
+<h3 id="tabela-de-acoes">Tabela de Ações</h3>
+<p>A tabela de ações indica o que dese ser feito em um vértice do grafo em função do token da entrada</p>
+<ol>
+<li>e(empilha)</li>
+<li>R(Reduz)</li>
+<li>A(Aceito)</li>
+<li>erro</li>
+</ol>
+<p><img alt="Parser LR graficamente" src="../../img/compiladores/tabela_de_acao.png" /></p>
+<p>EMPILHA</p>
+<p>-&gt; Cria um nova árvore com token atual</p>
+<p>-&gt; Consome token</p>
+<p>REDUZ</p>
+<p>-&gt; Executa a redução indicada</p>
+<p>ACEITA</p>
+<p>-&gt; Indica que àrvore foi construída</p>
+<h3 id="tabelas">Tabelas</h3>
 <ul>
-<li>
-<p>Um micro-kernel visa remover todo código de alto nível do kernel, deixando somente o necessário para interagir com o hardware e criar algumas abstrações básicas. E o restante do código será transferido para programas separados no espaço usuário, denominado serviços.</p>
-</li>
-<li>
-<p>Os processos interagem com SO através de troca de mensagens</p>
+<li>As tabelas são obtidas a partir da gramática</li>
+<li>Se mudar a gramática, mudam as tabelas</li>
+</ul>
+<p><img alt="Parser LR graficamente" src="../../img/compiladores/fusao_de_tabelas.png" /></p>
+<blockquote>
+<blockquote>
+<p>Para ocupar menos espaços, é comum combinar as tabelas em uma só</p>
+</blockquote>
+</blockquote>
+<h3 id="execucao">Execução</h3>
+<ol>
+<li>Cada passo do parser usa como parâmetros:<ul>
+<li>O token de entrada</li>
+<li>A floresta de sub-árvores</li>
+<li>Os estados, que podem ser visto como:<ul>
+<li>Uma linha da tabela</li>
+<li>O estado indicado no topo de cada árvore(cada árvore tem
+que ter um estado no topo)</li>
+</ul>
 </li>
 </ul>
-<h4 id="vantagens_1">Vantagens</h4>
-<p>Modularização: A  abordagem micronúcleo oferece maior modularidade, pois cada serviço pode ser desenvolvido de forma independente dos demais; mais flexibilidade, pois os serviços podem ser carregados e desativados conforme a necessidade; e mais robustez, pois caso um serviço falhe, somente ele será afetado, devido ao confinamento de memória entre os serviços.</p>
-<h4 id="desvantagens_2">Desvantagens</h4>
-<p>Implementação: Algumas partes do sistema operacional é impossível implementar esse esquema -&gt; carragar comandos nos registradores físicos.</p>
-<p>Difícil implementação.</p>
-<p><img alt="Abordagem micro-kernel" src="../../img/fundamentos_de_SO/micro.png" /></p>
-<h3 id="exo-kernel">Exo-kernel</h3>
+</li>
+</ol>
+<p><img alt="Parser LR graficamente" src="../../img/compiladores/execucao.png" /></p>
+<p>Fzer no papel arvore</p>
+<p>Parou Em Implemetação</p>
+<h2 id="construcao-de-tabelas">Construção de Tabelas</h2>
+<p>CONCEITOS IMPORTANTES</p>
+<p>1 - Estados</p>
+<p><img alt="Parser LR graficamente" src="../../img/compiladores/estaods.png" /></p>
+<p>2 - Transição</p>
+<p><img alt="Parser LR graficamente" src="../../img/compiladores/transicao.png" /></p>
+<p>3 - Item</p>
+<p><img alt="Parser LR graficamente" src="../../img/compiladores/item.png" /></p>
+<p>Exemplo de Itens:</p>
+<p><img alt="Parser LR graficamente" src="../../img/compiladores/exemplo_itens.png" /></p>
+<p>Cada produção tem varios itens</p>
+<p><img alt="Parser LR graficamente" src="../../img/compiladores/itemns_lr.png" /></p>
+<p>Cada estado representa um conjuneto de itens;</p>
+<p>Conjuntos no sentido matemático;</p>
+<h3 id="fecho-transitivo-de-itens">Fecho Transitivo de Itens</h3>
 <ul>
-<li>
-<p>o núcleo do sistema apenas proporciona acesso controlado aos recursos do hardware, mas não implementa nenhuma abstração.</p>
-</li>
-<li>
-<p>Separado em duas partes: &lt; Exo-kernel -&gt; núcleo minimalista que faz a multiplexação segura entre os recursos de hardware, protegendo-os. &lt; LibOS  -&gt; conjunto de biblioteca que gerenciam recursos e oferecem abstrações de alto nível para as aplicações</p>
-</li>
+<li>A construção do conjunto de itens válidos para cada estado (e as transições entre eles) é feita a partir de um item inicial daquele estado.</li>
 </ul>
+<p>Item inicial do estado 0:  <strong>[L' -&gt; *L#]</strong></p>
+<p><img alt="Parser LR graficamente" src="../../img/compiladores/graficamente_L.png" /></p>
+<p>Observe que o * mostra que todas as derivações possíveis a partir de L também são válidas, ou seja, no triângulo de L podem ser encaixados os seguintes itens <strong>[L -&gt; <em>L,E], [L -&gt; </em>E#]</strong></p>
+<p><img alt="Parser LR graficamente" src="../../img/compiladores/deriva.png" /></p>
 
 
 
@@ -746,7 +686,7 @@
       <nav class="md-footer__inner md-grid" aria-label="Rodapé" >
         
           
-          <a href="../classificacoes_SO/" class="md-footer__link md-footer__link--prev" aria-label="Anterior: Classificações dos SO">
+          <a href="../../processos/processos/" class="md-footer__link md-footer__link--prev" aria-label="Anterior: Processos">
             <div class="md-footer__button md-icon">
               
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
@@ -756,27 +696,11 @@
                 Anterior
               </span>
               <div class="md-ellipsis">
-                Classificações dos SO
-              </div>
-            </div>
-          </a>
-        
-        
-          
-          <a href="../../processos/processos/" class="md-footer__link md-footer__link--next" aria-label="Próximo: Processos">
-            <div class="md-footer__title">
-              <span class="md-footer__direction">
-                Próximo
-              </span>
-              <div class="md-ellipsis">
                 Processos
               </div>
             </div>
-            <div class="md-footer__button md-icon">
-              
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"/></svg>
-            </div>
           </a>
+        
         
       </nav>
     
