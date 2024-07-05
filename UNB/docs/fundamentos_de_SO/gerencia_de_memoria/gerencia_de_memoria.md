@@ -160,6 +160,71 @@ O programador divide seu programa em módulos, e informa quais módulos precisam
 
 O sistema é responsável por carregar e liberar os módulos da memória
 
+## Memória Virtual
+
+Implementação no hardware
+
+Comparado com um vetor estático na memória, o programador não está preocupado com o endereço que ele está acessando, pois o compilador faz essa tarefa.
+
+![Memória em vetor](../../img/fundamentos_de_SO/memoriaFisica.png)
+
+O sistema é responsável por traduzir essas instruções para endereços reais
+
+O SO combina a memória principal e secundária para criar um espaço de endereçamento maior que o disponível fisicamente
+
+![Memória em vetor](../../img/fundamentos_de_SO/memoriaVirtual.png)
+
+Ao desemvolver, o programador precisa apenas determinar o espaço de memória necessária
+
+Durante o processo de compilação e ligação, é gerado um código executável que utiliza endereços virtuais
+
+Esses endereços são usados pelo SO durante a execução para mapear em endereços reais
+
+![Memória em vetor](../../img/fundamentos_de_SO/memoriaVirtual2.png)
+
+Neste modelo, pode-se:
+
+1. Usar memória secundária e memória primária para criar uma memória maior que a disponível
+2. Os processos não precisam necessáriamente seram alocados em memória contínua
+
+
+### MMU: Unidade de Mapeamento de Memória
+
+Era implementa em chips, atualmente implementada diretamente no processador
+
+Mapea os endereços virtuais em endereços de memória física
+
+Assim, os endereços nãp vão diretamente para o barramento de memória
+
+Os endereços virtuais vão para a MMU antes da CPU fazer a referência à memória. Cada processo possui o seu espaço de endereçamento virtual e na execução os endereços são traduzidos a cada instrução
+
+A tabela de mapeamento é uma estrutura de dados para cada processo
+
+Essa tabela é alterada a cada troca de contexto entre os processos
+
+![Memória em vetor](../../img/fundamentos_de_SO/memoriaVirtual3.png)
+
+O tamanho da tabela de p´ginas inviabiliza mantê-la totalmente na MMU
+
+A tabela de páginas é armazenada na memória principal e um registrador contém o endereço de início da tabela de páginas
+
+A MMU possui uma momória associativa(cache) chamada de Translation Look-aside Buffer(TLB), onde algumas entradas de páginas são armazenadas
+
+Quando um endereço virtual é apresentado à MMU, ela procura primeiro na TLB
+
+Se tiver presente, o mapeamento é imediato
+
+Senão, um acesso à memória é feito para recuperar a entrada da tabela de páginas
+
+### Memória Virtual por Paginação
+
+
+
+### Memória Virtual por segmentação
+
+
+
+
 
 
 
