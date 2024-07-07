@@ -1,0 +1,979 @@
+
+<!doctype html>
+<html lang="pt" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../../../processos/processos/">
+      
+      
+        <link rel="next" href="../../../compiladores/sintantico/">
+      
+      
+      <link rel="icon" href="../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.5.18">
+    
+    
+      
+        <title>Gerência de Memória - UNB - Engenharia de Software</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.66ac8b77.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Ubuntu:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Ubuntu";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="light-blue" data-md-color-primary="blue" data-md-color-accent="light-blue">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#gerencia-de-memoria" class="md-skip">
+          Ir para o conteúdo
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Cabeçalho">
+    <a href="../../.." title="UNB - Engenharia de Software" class="md-header__button md-logo" aria-label="UNB - Engenharia de Software" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            UNB - Engenharia de Software
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Gerência de Memória
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="light-blue" data-md-color-primary="blue" data-md-color-accent="light-blue"  aria-label="Alternar para modo escuro"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Alternar para modo escuro" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 6H7c-3.31 0-6 2.69-6 6s2.69 6 6 6h10c3.31 0 6-2.69 6-6s-2.69-6-6-6zm0 10H7c-2.21 0-4-1.79-4-4s1.79-4 4-4h10c2.21 0 4 1.79 4 4s-1.79 4-4 4zM7 9c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="black" data-md-color-accent="light-blue"  aria-label="Alternar para modo claro"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Alternar para modo claro" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h10a5 5 0 0 0 5-5 5 5 0 0 0-5-5m0 8a3 3 0 0 1-3-3 3 3 0 0 1 3-3 3 3 0 0 1 3 3 3 3 0 0 1-3 3Z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var media,input,key,value,palette=__md_get("__palette");if(palette&&palette.color){"(prefers-color-scheme)"===palette.color.media&&(media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']"),palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent"));for([key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Buscar" placeholder="Buscar" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Pesquisar">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Limpar" aria-label="Limpar" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Inicializando a pesquisa
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+    
+      
+<nav class="md-tabs" aria-label="Abas" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../.." class="md-tabs__link">
+        
+  
+    
+  
+  Apresentação Prezi
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../../visao_geral/" class="md-tabs__link">
+          
+  
+  FSO
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../compiladores/sintantico/" class="md-tabs__link">
+          
+  
+  Compiladores
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--lifted md-nav--integrated" aria-label="Navegação" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="UNB - Engenharia de Software" class="md-nav__button md-logo" aria-label="UNB - Engenharia de Software" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    UNB - Engenharia de Software
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Apresentação Prezi
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+      
+        
+        
+      
+      
+    
+    
+      
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    FSO
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            FSO
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../visao_geral/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Visão Geral de um computador
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../classificacoes_SO/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Classificações dos SO
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../estrutura_kernel/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Estrutura dos Sistema Operacional
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../processos/processos/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Processos
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Gerência de Memória
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    Gerência de Memória
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Índice">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Índice
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#sem-abstracao-de-memoria" class="md-nav__link">
+    <span class="md-ellipsis">
+      Sem abstração de Memória
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Sem abstração de Memória">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#alocacao-contigua-simples" class="md-nav__link">
+    <span class="md-ellipsis">
+      Alocação contígua simples
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#alocacao-particionada" class="md-nav__link">
+    <span class="md-ellipsis">
+      Alocação Particionada
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Alocação Particionada">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#alocacao-particionada-estatica" class="md-nav__link">
+    <span class="md-ellipsis">
+      Alocação particionada Estática
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#abstracao-de-memoria-espaco-de-enderecamento" class="md-nav__link">
+    <span class="md-ellipsis">
+      Abstração de Memória: Espaço de Endereçamento
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Abstração de Memória: Espaço de Endereçamento">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#registrador-de-baselimite" class="md-nav__link">
+    <span class="md-ellipsis">
+      Registrador de Base/Limite
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#alocacao-particionada-dinamica" class="md-nav__link">
+    <span class="md-ellipsis">
+      Alocação Particionada Dinâmica
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Alocação Particionada Dinâmica">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#otimizacao-de-fragmentacao-externa" class="md-nav__link">
+    <span class="md-ellipsis">
+      Otimização de Fragmentação Externa
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#algoritmo-de-alocacao-de-espaco" class="md-nav__link">
+    <span class="md-ellipsis">
+      Algoritmo de Alocação de Espaço
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#gerenciamento-de-memoria-livre" class="md-nav__link">
+    <span class="md-ellipsis">
+      Gerenciamento de memória livre
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Gerenciamento de memória livre">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#mapa-de-bits" class="md-nav__link">
+    <span class="md-ellipsis">
+      Mapa de Bits
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#lista-encadeada" class="md-nav__link">
+    <span class="md-ellipsis">
+      Lista Encadeada
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#swapping" class="md-nav__link">
+    <span class="md-ellipsis">
+      Swapping
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#overlay" class="md-nav__link">
+    <span class="md-ellipsis">
+      Overlay
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#memoria-virtual" class="md-nav__link">
+    <span class="md-ellipsis">
+      Memória Virtual
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Memória Virtual">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#mmu-unidade-de-mapeamento-de-memoria" class="md-nav__link">
+    <span class="md-ellipsis">
+      MMU: Unidade de Mapeamento de Memória
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#memoria-virtual-por-paginacao" class="md-nav__link">
+    <span class="md-ellipsis">
+      Memória Virtual por Paginação
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#memoria-virtual-por-segmentacao" class="md-nav__link">
+    <span class="md-ellipsis">
+      Memória Virtual por segmentação
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+      
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../../compiladores/sintantico/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    Compiladores
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+<h1 id="gerencia-de-memoria">Gerência de Memória</h1>
+<p>O foco da gerência de memoria é da memória principal(Memória RAM)</p>
+<p>Programas são armazenados em memória secundária e precisam ser transferidos para a memória principal</p>
+<p>A gerência de memoria deve manter o maior número de processos residentes, buscando maximizar o compartilhamento de recursos</p>
+<p>Também possui algumas funções secundárias que não dependem do esquema de gerência, como:</p>
+<pre><code>- Controlar a alocação de pedaçoes de memória a processos
+- Liverar pedaçoes de memória alocados a processos que não são mais necessários
+</code></pre>
+<h2 id="sem-abstracao-de-memoria">Sem abstração de Memória</h2>
+<p>Dois programas não podem executar ao mesmo tempo</p>
+<p>Se um programa escreve um valor uma posição, o outro programa irá sobreescrever esse valor alguma hora</p>
+<h3 id="alocacao-contigua-simples">Alocação contígua simples</h3>
+<p>Nesse modelo o SO pode estar na parte inferior da memória e o restante está disponível para o usuário</p>
+<p>Erros nos programas podem causar falhas gerais no sistema.</p>
+<p><img alt="Alocação simples" src="../../../img/fundamentos_de_SO/aloca_simples.png" /></p>
+<p>Uma outra forma de proteção é manter o SO em uma região de memória de apenas leitura(ROM - Read Only Memory)</p>
+<p><img alt="Alocação com ROM" src="../../../img/fundamentos_de_SO/comROM.png" /></p>
+<p>Organização onde temos drives de dispositivos em memoria de leitura</p>
+<p>O SO em leitura de escrita e leitura</p>
+<p>A Porcão ROM é chamada de BIOS</p>
+<p><img alt="Alocação com BIOS" src="../../../img/fundamentos_de_SO/aloca_BIOS.png" /></p>
+<p>! Em todos os casos acima, são inviáveis para usar multiplos processos</p>
+<p>! Elas também trazem um grande desperdício computacional: Se um programa não utilizar toda a memória RAM, um grnade espaço livre é encontrado na estação</p>
+<h2 id="alocacao-particionada">Alocação Particionada</h2>
+<p>Os usuários dividem o espaço de memória e uma parte da memória(Protegida pelo hardware) é alocada para o SO</p>
+<h3 id="alocacao-particionada-estatica">Alocação particionada Estática</h3>
+<p>Cada partição pode ter apenas um programa em execução e um processo sempre roda na mesma partição até terminar</p>
+<p><img alt="Alocação Particionada" src="../../../img/fundamentos_de_SO/alocacaoParticionada.png" /></p>
+<p><img alt="Alocação Estatica" src="../../../img/fundamentos_de_SO/alocacaoParticionada2.png" /></p>
+<p>! Um processo nem sempre vai utilizar toda a memória disponível na partição - <Strong>Fragmentação Interna</Strong></p>
+<p>! Outro problema, se existem 3 partições de 5 KB, 3 KB e 2KB e são criados dois processos de 3 KB, epnas um deles vai poder executar, mesmo que exista 5 KB disponíveis em memória</p>
+<p>Antigamente, os endereços de memórias eram absolutos, sendo assim, os computadores só podiam usar apenas uma partição, mesmo que outra tivesse disponível.</p>
+<h2 id="abstracao-de-memoria-espaco-de-enderecamento">Abstração de Memória: Espaço de Endereçamento</h2>
+<p><Strong>Espaço de endereçamento</Strong> Cada processo possui um conjunto de endereços associados a ele e que não podem referenciar outros.</p>
+<h3 id="registrador-de-baselimite">Registrador de Base/Limite</h3>
+<p>A maneira mais simples de se implementar a proteção e a realocação é com Registrador de base e limite.</p>
+<p>A CPU é equipado com dois registradores especiais, base e limite</p>
+<p>Os programas são sempre carregados em memórias consecutivas</p>
+<p>Quando o processo é carregado em memória, o registrador base armazena o valor do endereço físico do início do programa</p>
+<p>O registrador limite armazena o tamanho do programa</p>
+<p>Toda vez um processo referencia a memória, como ler, o hardware da CPU automaticamente adiciona o valor base gerado antes de enviá-lo ao barramento de memória</p>
+<p>É verificado também se os limites definidos estão dentro do limite(base + limite)</p>
+<p>! A realocação usando registrador base e limiute é a necessidade de uma adição e uma comparação em cada referência de memória.</p>
+<p>! Comparação são operações rápidas, mas somas podem ser lentas</p>
+<h2 id="alocacao-particionada-dinamica">Alocação Particionada Dinâmica</h2>
+<p>O uso de registradores base e limites permite o esquema de partições de tamanho variável.</p>
+<p>A memória é criada de acordo com o início do processo</p>
+<p>Resolve o problema do MFT - Multiprogramming Fixed Task</p>
+<p>Memória é dividada em um conjunto de partições de tamanho variável</p>
+<p><img alt="Alocacao  particionada Dinamica de Memoria" src="../../../img/fundamentos_de_SO/alocaoDinamic.png" /></p>
+<p>Resolve o problema de fragmentação externa, entretanto, cria "Buracos" durante a execução chamada de <Strong>Fragmentação Externa</Strong></p>
+<h3 id="otimizacao-de-fragmentacao-externa">Otimização de Fragmentação Externa</h3>
+<p>Compactação de memória: Quando chegar a um nível de fragmentação externa intoleráveis, os processos são movidos dentro da memória principal para novas regiões</p>
+<p>! Causa um congelamento de todos os processos: Nada além do gerencimento de memória executa.</p>
+<p><img alt="Compactação de memória" src="../../../img/fundamentos_de_SO/compacMemory.png" /></p>
+<p>A compactação de memória é um processo lento e de grande impacto na performance.</p>
+<h3 id="algoritmo-de-alocacao-de-espaco">Algoritmo de Alocação de Espaço</h3>
+<p>A função do sistema operacional é decidir onde encaixar os processos na memória.</p>
+<p>Existe 3 Estratégias:</p>
+<p>First fit: Aloca no primeiro espaço grande o suficiente</p>
+<p><img alt="First fit" src="../../../img/fundamentos_de_SO/first.png" /></p>
+<p>Best fit: Aloca no menor espaço grande o suficiente</p>
+<p><img alt="Best fit" src="../../../img/fundamentos_de_SO/best.png" /></p>
+<p>Worst fit: aloca no maior espaço grande o suficiente</p>
+<p><img alt="Worst fit" src="../../../img/fundamentos_de_SO/worst.png" /></p>
+<h2 id="gerenciamento-de-memoria-livre">Gerenciamento de memória livre</h2>
+<p>Em todos os casos quando a alocação é uma processi dinâmico, é necessário rastrear e manter o uso da memória</p>
+<h3 id="mapa-de-bits">Mapa de Bits</h3>
+<p>Memória dividida em unidades de alocação</p>
+<p>Cada unidade de medida de alocação corresponde a um bit no mapa, 0 = Livre e 1 Ocupado</p>
+<p><img alt="Mapa em gerencia de memoria livre" src="../../../img/fundamentos_de_SO/mapa_bits.png" /></p>
+<p>MAPA DE BITS: 11111000001111100111011110000000011111</p>
+<h3 id="lista-encadeada">Lista Encadeada</h3>
+<p>Cada membro dessa lista contém o tipo de segmento(livre ou ocupado), o endereço de início, o tamanho do segmento e um ponteiro para o próximo elemento</p>
+<p><img alt="Lista em gerencia de memoria livre" src="../../../img/fundamentos_de_SO/lista_encadeada.png" /></p>
+<h2 id="swapping">Swapping</h2>
+<p>No Swapping, o SO escolhe processos que não são muito utilizados(Daemons) e transfere esse processo para a memória secundária (swap out).</p>
+<p>Caso o processo seja despertar, ele volta para a memória principal como se nada tivesse acontecido.</p>
+<p>Existe uma área reservada no disco, chamada área de swap</p>
+<p>Linux gera uma partição, enquanto o Windows, é um arquivo dentro da partição conhecida pelo SO e pode ser configurada.</p>
+<h2 id="overlay">Overlay</h2>
+<p>O programador divide seu programa em módulos, e informa quais módulos precisam estar ativos simultâneos.</p>
+<p>O sistema é responsável por carregar e liberar os módulos da memória</p>
+<h2 id="memoria-virtual">Memória Virtual</h2>
+<p>Implementação no hardware</p>
+<p>Comparado com um vetor estático na memória, o programador não está preocupado com o endereço que ele está acessando, pois o compilador faz essa tarefa.</p>
+<p><img alt="Memória em vetor" src="../../../img/fundamentos_de_SO/memoriaFisica.png" /></p>
+<p>O sistema é responsável por traduzir essas instruções para endereços reais</p>
+<p>O SO combina a memória principal e secundária para criar um espaço de endereçamento maior que o disponível fisicamente</p>
+<p><img alt="Memória em vetor" src="../../../img/fundamentos_de_SO/memoriaVirtual.png" /></p>
+<p>Ao desemvolver, o programador precisa apenas determinar o espaço de memória necessária</p>
+<p>Durante o processo de compilação e ligação, é gerado um código executável que utiliza endereços virtuais</p>
+<p>Esses endereços são usados pelo SO durante a execução para mapear em endereços reais</p>
+<p><img alt="Memória em vetor" src="../../../img/fundamentos_de_SO/memoriaVirtual2.png" /></p>
+<p>Neste modelo, pode-se:</p>
+<ol>
+<li>Usar memória secundária e memória primária para criar uma memória maior que a disponível</li>
+<li>Os processos não precisam necessáriamente seram alocados em memória contínua</li>
+</ol>
+<h3 id="mmu-unidade-de-mapeamento-de-memoria">MMU: Unidade de Mapeamento de Memória</h3>
+<p>Era implementa em chips, atualmente implementada diretamente no processador</p>
+<p>Mapea os endereços virtuais em endereços de memória física</p>
+<p>Assim, os endereços nãp vão diretamente para o barramento de memória</p>
+<p>Os endereços virtuais vão para a MMU antes da CPU fazer a referência à memória. Cada processo possui o seu espaço de endereçamento virtual e na execução os endereços são traduzidos a cada instrução</p>
+<p>A tabela de mapeamento é uma estrutura de dados para cada processo</p>
+<p>Essa tabela é alterada a cada troca de contexto entre os processos</p>
+<p><img alt="Memória em vetor" src="../../../img/fundamentos_de_SO/memoriaVirtual3.png" /></p>
+<p>O tamanho da tabela de p´ginas inviabiliza mantê-la totalmente na MMU</p>
+<p>A tabela de páginas é armazenada na memória principal e um registrador contém o endereço de início da tabela de páginas</p>
+<p>A MMU possui uma momória associativa(cache) chamada de Translation Look-aside Buffer(TLB), onde algumas entradas de páginas são armazenadas</p>
+<p>Quando um endereço virtual é apresentado à MMU, ela procura primeiro na TLB</p>
+<p>Se tiver presente, o mapeamento é imediato</p>
+<p>Senão, um acesso à memória é feito para recuperar a entrada da tabela de páginas</p>
+<h3 id="memoria-virtual-por-paginacao">Memória Virtual por Paginação</h3>
+<h3 id="memoria-virtual-por-segmentacao">Memória Virtual por segmentação</h3>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12Z"/></svg>
+  Voltar ao topo
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Rodapé" >
+        
+          
+          <a href="../../../processos/processos/" class="md-footer__link md-footer__link--prev" aria-label="Anterior: Processos">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Anterior
+              </span>
+              <div class="md-ellipsis">
+                Processos
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../../../compiladores/sintantico/" class="md-footer__link md-footer__link--next" aria-label="Próximo: Analisador Sintático">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Próximo
+              </span>
+              <div class="md-ellipsis">
+                Analisador Sintático
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../../..", "features": ["navigation.tabs", "navigation.tabs.sticky", "navigation.path", "navigation.prune", "navigation.top", "navigation.footer", "navigations.indexes", "content.code.copy", "toc.integrate", "search.suggest", "search.highlight"], "search": "../../../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copiado para \u00e1rea de transfer\u00eancia", "clipboard.copy": "Copiar para \u00e1rea de transfer\u00eancia", "search.result.more.one": "Mais 1 nesta p\u00e1gina", "search.result.more.other": "Mais # nesta p\u00e1gina", "search.result.none": "Nenhum resultado encontrado", "search.result.one": "1 resultado encontrado", "search.result.other": "# resultados encontrados", "search.result.placeholder": "Digite para iniciar a busca", "search.result.term.missing": "Ausente", "select.version": "Selecione a vers\u00e3o"}}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.3220b9d7.min.js"></script>
+      
+    
+  </body>
+</html>
