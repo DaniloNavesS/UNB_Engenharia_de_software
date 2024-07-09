@@ -8,6 +8,8 @@ nav:
     - Estrutura dos Sistema Operacional: fundamentos_de_SO/estrutura_kernel.md
     - Processos: processos/processos.md
     - Gerência de Memória: fundamentos_de_SO/gerencia_de_memoria/gerencia_de_memoria.md
+    - Sistema de Arquivos: fundamentos_de_SO/sistema_de_arquivos/sistema_de_arquivos.md
+    - Entrada/Saída: fundamentos_de_SO/entrada_saida/entrada_saida.md
   - Compiladores:
     - Analisador Sintático: compiladores/sintantico.md
 

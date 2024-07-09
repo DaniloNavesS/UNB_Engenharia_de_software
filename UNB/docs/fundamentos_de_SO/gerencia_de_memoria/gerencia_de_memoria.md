@@ -218,9 +218,91 @@ Senão, um acesso à memória é feito para recuperar a entrada da tabela de pá
 
 ### Memória Virtual por Paginação
 
+Divide a memória física e a memória virtual em unidades de tamanho fixo.
 
+Páginas Virtuais e Páginas Reais
+
+As pages frames são são o espaço das páginas enquanto elas estiverem na memória.
+
+A CPU envia o endereço virtual (v) para a MMU.
+
+Na MMU, o endereço virtual é dividido em (p,d) onde p é a página e d é o deslocamento dentro da página.
+
+A MMU substitui p por f e coloca o endereço(d,f) no barramento
+
+![Memória em vetor](../../img/fundamentos_de_SO/MMu.png)
+
+A entrada da tabela de páginas contém diversas informações: localização da página virtual, se está na memória principal ou secundária, se ela foi referenciada, altera ou se esta protegida entre outros.
+
+Quando a memória foi referenciada e não está na memória principal, é gerado um <strong>page fault</strong>
+
+Então, o SO irá transferir a página da memória secundária para a principal: PAGE IN
+
+Neste processo, ela irá escolher uma página para ser substituída da memória principal, atualizar a tabela de páginas e reexecutar a instrução que causou page fault.
+
+Quando um page fault ocorre, o processo é alterado para o estado de bloqueado, até que a operação de E/S para carregar a página na memória seja resolvida.
+
+O procedimento de mover uma página para disco é conhecido como PAGE OUT
+
+- Busca de Página
+
+Ao se buscar páginas na memória, pode-se utilizar diferentes estratégias:
+
+1. Páginação por Demanda: As páguinas dos processos são transferidas somente quando ocorre algumas referência a ela. Somente carrega páginas necessárias a memória. 
+2. Paginação Antecipada: Ao carregar uma página para a memória principal, o sistema também carrega páginas próximas, buscando antecipar páginas que serão acessadas
+
+- Alocação de Páginas
+
+A política de alocação de páginas determina quantos frames cada processo pode ter na memória principal:
+
+1. Política de alocação fixa: Cada processo tem um número máximo de frames a ocupar durante a execução do programa. Se atingir o máximo, é forçado um page fault.
+2. Política de alocação variável: Na alocação variável, o número de páginas do processo varia durante a sua execução em função da taxa de paginação e a sua atual posição na posição de memória. Assim, os processos que estão sofrendo muitos page fault pode ampliar o limite máximo de frames, a fim de reduzir o número de page faults
+
+### Working Set
+
+Existe um desafio a se implmentar a memória virtual, para decidir quais páginas permanecem na memória e quais deveria sair.
+
+Caso ocorra muitos pages faults, é denominado de THRASHING
+
+O princício da localidade define dois tipos de localidade:
+
+- Localidade Espacial: Após uma referência a uma memória, é provável que as próximas referências sejam realizadas em regiões próximas.
+- Localidade Temporal: Após uma referência a uma memória, é provável que as próximas referências sejam realizadas em um curto espaço de tempo.
+
+Por isso, pode-se dizer que a memória é dividida em fases: 
+
+![Memória em vetor](../../img/fundamentos_de_SO/fases.png)
+
+O princípio da localidade é intuitivo, ao pensar que o programa é composto por loops: a tendência é que os mesmos dados sejam acessados.
+
+## Algoritmos de Substituição de Páginas
+
+Serve para escolher os frames que serão substituídos levando em conta que não serão os próximos à serem escolhidos.
+
+Principais Algoritmos:
+
+1. Ótimo: Seleciona a página que não será mais referenciada no futuro, impossível de ser implementada
+2. Aleatório: Algoritmo seleciona aleatoriamente as páginas a serem substituídas, não possui eficiência boa
+3. First-in First-out(FIFO): Seleciona a página que está a mais tempo na memória, mantendo as páginas mais novas nela.
+4. Least-Frequently-Used(LFU): O algoritmo seleciona a página menos utilizada, cria um overhead de manter um contador para cada acesso na memória realizado pelos programas.
+5. Least-Recently-Used(LRU): Algoritmo seleciona página que está a mais tempo sem ser utilizada, alto custo de implementação.
+6. Not-Recently-Used(NRU): Simplificação do LRU, Na tabela de páginas, existe um bit de referência, caso a página for acessada ela recebe o bit 1, e depois de um tempo, todos os bits virão 0.
+7. FIFO Circular(CLOCK): Algoritmo que utiliza FIFO, porém está numa estrutura circular, semelhante a um relógio. Existe um ponteiro que guarda a posição da página mais antiga na lista, cada página possui um bit de referência. PRESENTE EM MUITOS SISTEMAS UNIX.
+
+### Tamanho das páginas
+
+O tamanho da página varia de acordo com o hardware.
 
 ### Memória Virtual por segmentação
+
+Divide as memórias físicas e virtual em unidades de tamanho variável.
+
+### Comparação entre PAGINAÇÂO e SEGMENTAÇÃO
+
+- Fragmentação:
+
+Na paginação ocorre o problema da fragmentaçãp interna: Como ela possui tamanho fixo, não é garantia que será complemetamente utilizado.
+
 
 
 
