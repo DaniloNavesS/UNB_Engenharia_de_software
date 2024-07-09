@@ -9,25 +9,25 @@
       
       
       
-        <link rel="prev" href="../classificacoes_SO/">
+        <link rel="prev" href="../../sistema_de_arquivos/sistema_de_arquivos/">
       
       
-        <link rel="next" href="../../processos/processos/">
+        <link rel="next" href="../../../compiladores/sintantico/">
       
       
-      <link rel="icon" href="../../assets/images/favicon.png">
+      <link rel="icon" href="../../../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.5.18">
     
     
       
-        <title>Estrutura dos Sistema Operacional - UNB - Engenharia de Software</title>
+        <title>Entrada/Saída - UNB - Engenharia de Software</title>
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.66ac8b77.min.css">
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.66ac8b77.min.css">
       
         
-        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.06af60db.min.css">
       
       
 
@@ -46,7 +46,7 @@
       
     
     
-    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
@@ -72,7 +72,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#estrutura-de-kernel" class="md-skip">
+        <a href="#gerencia-de-entrada-e-saida" class="md-skip">
           Ir para o conteúdo
         </a>
       
@@ -88,7 +88,7 @@
 
 <header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Cabeçalho">
-    <a href="../.." title="UNB - Engenharia de Software" class="md-header__button md-logo" aria-label="UNB - Engenharia de Software" data-md-component="logo">
+    <a href="../../.." title="UNB - Engenharia de Software" class="md-header__button md-logo" aria-label="UNB - Engenharia de Software" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
@@ -108,7 +108,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Estrutura dos Sistema Operacional
+              Entrada/Saída
             
           </span>
         </div>
@@ -199,7 +199,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../.." class="md-tabs__link">
+      <a href="../../.." class="md-tabs__link">
         
   
     
@@ -220,7 +220,7 @@
     
     
       <li class="md-tabs__item md-tabs__item--active">
-        <a href="../visao_geral/" class="md-tabs__link">
+        <a href="../../visao_geral/" class="md-tabs__link">
           
   
   FSO
@@ -238,7 +238,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../compiladores/sintantico/" class="md-tabs__link">
+        <a href="../../../compiladores/sintantico/" class="md-tabs__link">
           
   
   Compiladores
@@ -279,7 +279,7 @@
 
 <nav class="md-nav md-nav--primary md-nav--lifted md-nav--integrated" aria-label="Navegação" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="../.." title="UNB - Engenharia de Software" class="md-nav__button md-logo" aria-label="UNB - Engenharia de Software" data-md-component="logo">
+    <a href="../../.." title="UNB - Engenharia de Software" class="md-nav__button md-logo" aria-label="UNB - Engenharia de Software" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
@@ -297,7 +297,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../.." class="md-nav__link">
+      <a href="../../.." class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -362,7 +362,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../visao_geral/" class="md-nav__link">
+      <a href="../../visao_geral/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -383,11 +383,95 @@
   
   
     <li class="md-nav__item">
-      <a href="../classificacoes_SO/" class="md-nav__link">
+      <a href="../../classificacoes_SO/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
     Classificações dos SO
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../estrutura_kernel/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Estrutura dos Sistema Operacional
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../processos/processos/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Processos
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../gerencia_de_memoria/gerencia_de_memoria/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Gerência de Memória
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../sistema_de_arquivos/sistema_de_arquivos/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Sistema de Arquivos
   </span>
   
 
@@ -417,7 +501,7 @@
           
   
   <span class="md-ellipsis">
-    Estrutura dos Sistema Operacional
+    Entrada/Saída
   </span>
   
 
@@ -428,7 +512,7 @@
         
   
   <span class="md-ellipsis">
-    Estrutura dos Sistema Operacional
+    Entrada/Saída
   </span>
   
 
@@ -450,109 +534,37 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#definicao" class="md-nav__link">
+  <a href="#subsistema-de-es" class="md-nav__link">
     <span class="md-ellipsis">
-      Definição
+      Subsistema de E/S
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Definição">
+    <nav class="md-nav" aria-label="Subsistema de E/S">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#sistema-monoliticos" class="md-nav__link">
+  <a href="#device-driver" class="md-nav__link">
     <span class="md-ellipsis">
-      Sistema Monolíticos
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Sistema Monolíticos">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#vantagens" class="md-nav__link">
-    <span class="md-ellipsis">
-      Vantagens
+      Device Driver
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#desvantagens" class="md-nav__link">
+  <a href="#controladores-de-es" class="md-nav__link">
     <span class="md-ellipsis">
-      Desvantagens
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#sistema-em-camadas" class="md-nav__link">
-    <span class="md-ellipsis">
-      Sistema em camadas
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Sistema em camadas">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#desvantagens_1" class="md-nav__link">
-    <span class="md-ellipsis">
-      Desvantagens
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#micro-kernel" class="md-nav__link">
-    <span class="md-ellipsis">
-      Micro-kernel
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Micro-kernel">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#vantagens_1" class="md-nav__link">
-    <span class="md-ellipsis">
-      Vantagens
+      Controladores de E/S
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#desvantagens_2" class="md-nav__link">
+  <a href="#tratador-interrupcao" class="md-nav__link">
     <span class="md-ellipsis">
-      Desvantagens
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#exo-kernel" class="md-nav__link">
-    <span class="md-ellipsis">
-      Exo-kernel
+      Tratador Interrupção
     </span>
   </a>
   
@@ -567,90 +579,6 @@
   
 </nav>
       
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../processos/processos/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    Processos
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../gerencia_de_memoria/gerencia_de_memoria/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    Gerência de Memória
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../sistema_de_arquivos/sistema_de_arquivos/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    Sistema de Arquivos
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../entrada_saida/entrada_saida/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    Entrada/Saída
-  </span>
-  
-
-      </a>
     </li>
   
 
@@ -686,7 +614,7 @@
         
   
   
-    <a href="../../compiladores/sintantico/" class="md-nav__link">
+    <a href="../../../compiladores/sintantico/" class="md-nav__link">
       
   
   <span class="md-ellipsis">
@@ -720,58 +648,124 @@
                   
 
 
-<h1 id="estrutura-de-kernel">Estrutura de Kernel</h1>
-<h2 id="definicao">Definição</h2>
-<p>É de acordo como a estrutura(núcleo) está organizado.</p>
-<p>Sendo eles, Sistemas Monolíticos, Sistema em camadas, Máquinas Virtuais, Micro-kernel(cliente/servidor), Exo-kernel.</p>
-<h3 id="sistema-monoliticos">Sistema Monolíticos</h3>
+<h1 id="gerencia-de-entrada-e-saida">Gerência de entrada e saída</h1>
+<p>A gerência de E/S é uma das maiores e mais complexas funções de um SO, pois existe diversos dispositivos de E/S no mercado.</p>
+<p>A implementação dessa abstração é divida em múltiplas camadas.</p>
+<ol>
+<li>Subsistema de E/S: Isola a complexidade dos dispostivos físicos de E/S;</li>
+<li>Devide Driver: Implementa detalhes de cada periférico em modo protegido;</li>
+<li>Tratador de Interrupção: Camada que implementa a lógica de interrupções;</li>
+<li>Controlador e Dispositivo de E/S: O hardware em questão;</li>
+</ol>
+<p><img alt="Level Único" src="../../../img/fundamentos_de_SO/entrada_ex.png" /></p>
+<p>Os dispositivos de entrada e saida são divididos na categoria de blocos ou caracteres.</p>
 <ul>
-<li>O sistema é um "bloco maciço" de código que opera em modo núcleo, com acesso a todos os recursos do hardware e sem restrições de acesso a memória.</li>
+<li>Blocos: Armazena informações de tamanho fixo, cada uma com seu próprio endereço(Tamanhos entre 512 a 64k)</li>
 </ul>
-<h4 id="vantagens">Vantagens</h4>
+<p>Cada bloco pode ser lido e escrito independentemente de todos os outros</p>
+<p>HDs, Blu-Ray, Pendrives</p>
 <ul>
-<li>Desempenho: Qualquer componente pode acessar os demais componente diretamente, pois não há barreiras.</li>
+<li>Caracteres: Envia e aceia um fluxo de caracteres, desconsiderando qualquer estrutura de bloco</li>
 </ul>
-<h4 id="desvantagens">Desvantagens</h4>
+<p>Não é endereçável, não tem operações de busca</p>
+<p>Impressoras, interfaces de rede, mouses</p>
+<h2 id="subsistema-de-es">Subsistema de E/S</h2>
+<p>A comunicação com o Subsistema de E/S é realizado através das rotinas de E/S</p>
+<p>Essas rotinas permitem a comunicação com o dispositivo sem se preocupar com detalhes de implementação</p>
+<pre><code>Por exemplo: ao criar um arquivo não é necessário se preocupar com detalhes além do nome e permissões. Trilhas, setores, disco, são calculados pelo SO
+</code></pre>
+<p>As rotinas são independentes do disopositivo, por exemplo, as chamadas de vídeo não dependem se é um monitor LCD, LED ou CRT</p>
+<p>As rotinas de E/S podem ser efetuadas diretamente no subsistema de E/S (como para vídeo) ou podem ser executas em uma outra subcamada, como o sistema de arquivos ou a gerência de USB.</p>
+<p>Quando as chamadas são realizadas diretamente no subsistema de E/S elas são <strong>chamadas explícitas</strong></p>
+<p>Caso contrário, éuma chamda implícita, onde a partir de alguma chamada de sistema são geradas chamadas para o subsistema de E/S a partir de algum outro módulo do SO</p>
+<p>As opercações de E/S também pode ser clasificadas em:</p>
+<p>Síncronas: Onde a aplicação aguarda o término ficando em um estado bloquado. A maioiria das chamadas é assim;</p>
+<p>Assíncronas: a aplicação continua a execução após realizar a chamada. Neste caso, é necessário implementar uma forma de avisar a aplicação o término da chamada de E/S</p>
+<p>Cada dispositivo trabalha com unidade de tamanho diferente. O subsistema de E/S cria uma unidade de transferência básica</p>
+<p>Ele repassa as chamadas às camadas inferiores e obtém as informações das camadas superiores sem conhecimento da informação</p>
+<p>O tratamento de erro de operações é realizado na camada mais baixa</p>
+<p>Porém alguns erros não são tratados e são enviados à camada superior, como erros de permissão</p>
+<p>O sistema operacional também é responsável por gerenciar os dispositivos de E/S para diversos usuários e aplicações diferentes.</p>
+<p>A principal função do subsistema de E/S é criar uma interface padronizada, independente dos dispositivos, com o device driver.</p>
+<h3 id="device-driver">Device Driver</h3>
+<p>O device driver(Drive de dispositivo) tem como função implementar a comunicação do subsistema de entrada e saída com os controladores de E/S</p>
+<p>O subsistema de E/S é uma camda genérica e possui uma interface para todos os dispositivos</p>
+<p>O driver de despositivo implementa as chamadas específicas do dispositivo, recebendo comandos genéricos e traduzindo para específicos.</p>
+<p><img alt="Level Único" src="../../../img/fundamentos_de_SO/driver_impressora.png" /></p>
+<p>Driver de dispositivo lidam com uma classe de dispositivos: um driver SCSI pode lidar com uma classe enorme de HDs</p>
+<p>Driver USB estão disponíveis para discos camêras, pendrives, mouse, teclado, etc.</p>
+<p>Para lidar com essa situação , os driver são empilhados no sistema operacional, assim como as camadas TCP/IP são empilhados na rede.</p>
+<p><img alt="Level Único" src="../../../img/fundamentos_de_SO/deviceDriver.png" /></p>
+<p>Na maioria dos SOs, os devices drives fazem parte do núcleo: Erros nesse trecho podem causar um kernel panic/tela azul</p>
+<h3 id="controladores-de-es">Controladores de E/S</h3>
+<p>Geralmente, os dispositivos de E/S são compostos por uma parte mecânica(hardware) e uma parte eletrônica que controla o hardware.</p>
+<p>O sistema operacional programa a controladora e não o dispositivo diretamente</p>
+<p><img alt="Level Único" src="../../../img/fundamentos_de_SO/controladora.png" /></p>
+<p>O controlador de E/S normalmente está na forma de um chip na placa-mãe, em computadores pessoais</p>
+<p>A interface pode ser padronizada entre os dispositivos e a controladora, assim, garantindo a compatibilidade entre as fabricantes.</p>
+<p>Controladores de E/S também é chamado de módulo de E/S</p>
+<p>O controlador possui memória e registradores próprios usados na execução de instruções enviadas pelo device driver</p>
+<p>A principal função do controlador de E/S é receber instruções da/para CPU e repassar para o/do o dispositivo</p>
+<p>Durante esse processo, os bytes que são enviados serialmente podem ser unidos em blocos e também pode-se verificar erros de transmissão</p>
+<p>Considere que o dispositivo em questão é um monitor LCD:</p>
+<p>O monitor recebe caracteres a serem exibidos e gera sinais para modificar a polarização da retroiluminação dos pixels no monitor</p>
+<p>O controlador de tela nesse caso é fundamental para a simplificação do processo</p>
+<p>Se não fosse ele, o Sistema Operacional deveria calcular explicitamente o campo elétrico de todos os pixels em questão</p>
+<p>A comunicação entre o processador é o módulo de E/S pode ser realizada através de 3 possíveis operações:</p>
+<ol>
+<li>E/S programada;</li>
+<li>E/S controlada por interrupção</li>
+<li>Acesso direto à memória(DMA)</li>
+</ol>
+<p>Na técnica de E/S programada o processador é utilizado intesamente para realizar a operação de E/S.</p>
+<p>Durante o período da operação, a CPU fica a todo momento questionando se o dispositivo está pronto ou não para uma nova operação</p>
+<p><img alt="Level Único" src="../../../img/fundamentos_de_SO/esProgramada.png" /></p>
+<p>E/S dirigida por interrupção</p>
+<p>A grande desvantagem da E/S programa é utilizar o tempo do processador para verificar o dispositivo</p>
+<p>Um método de interrupção gera uma linha de controle adicional, de forma que o processador pode executar outras funções. Quando o dispositivo terminar, ele gera uma interrupção para o processador</p>
+<p>Quando um processador recebe uma interrupção, ele realiza a cópia do módulo de E/S para a memória e posteriormente retoma o processamento que estava executando.</p>
+<p><img alt="Level Único" src="../../../img/fundamentos_de_SO/interupcao.png" /></p>
+<p>Acesso direto à memória(DMA)</p>
+<p>O módulo de E/S usa o barramento de memória quando o processador não está usando.</p>
+<p>O módulo é capaz de imitar um processador no que diz a respeito a transferência de dados para a memória</p>
+<p>Para implementar o DMA, o processador envia um comando com as seguintes informações:</p>
 <ul>
 <li>
-<p>Problema de Robustez: Como todos os componentes tem privilegio a todo o hardware, caso ocorra um erro, este erro pode se espalhar rapidamente por todo o sistema.</p>
+<p>Indicação de uma operação de leitura ou escrita, usando a linha de controle</p>
 </li>
 <li>
-<p>Escabilidade: Como todo o núcleo está unido, o sistema pode ser fortemente interdependentes, tornando a manuteção e a evolução mais complexa a cada adição de funcionalidades.</p>
+<p>O endereço do dispositivo de E/S envolvido</p>
+</li>
+<li>
+<p>O endereço de memória para o início da leitura ou escrita de dados</p>
+</li>
+<li>
+<p>Números de palavras a serem lidas ou escritas</p>
 </li>
 </ul>
-<p><img alt="Estrutura de monolítico" src="../../img/fundamentos_de_SO/monolitico.png" /></p>
-<h3 id="sistema-em-camadas">Sistema em camadas</h3>
-<ul>
-<li>Uma forma mais elegante de estruturar um sistema operacional faz uso da noção de camadas: a camada mais baixa realiza a interface com o hardware, enquanto as camadas intermediárias proveem níveis de abstração e gerência cada vez mais sofisticados. Por fim, a camada superior define a interface do núcleo para as aplicações (as chamadas de sistema). As camadas têm níveis de privilégio decrescentes: a camada inferior tem acesso total ao hardware, enquanto a superior tem acesso bem mais restrito.</li>
-</ul>
-<h4 id="desvantagens_1">Desvantagens</h4>
-<p>Lento desempenho: Por causa de cada camada precisar se comunicar, acaba deixando lento a comunicação de por exemplo, entrada do teclado.</p>
-<p>Divisão-não-clara: Como muitos recursos tinha co-relação, era dificil separar de maneira óbvia as camadas</p>
-<p><img alt="Estrutura em camadas" src="../../img/fundamentos_de_SO/so_camadas.png" /></p>
-<h3 id="micro-kernel">Micro-kernel</h3>
+<p>Depois disso o processador continua o trabalho que
+quiser executar</p>
+<p>O módulo de DMA transfere o bloco de dados diretamente de/para a memória sem passar pelo processador</p>
+<p>Quando a transferência termina, o módulo de DMA envia um sinal de interrupção ao processador</p>
+<p>Assim o processador é envolvido apenas no início e final de cada transferência</p>
+<p><img alt="Level Único" src="../../../img/fundamentos_de_SO/Dma.png" /></p>
+<h3 id="tratador-interrupcao">Tratador Interrupção</h3>
+<p>Processo de tratamento de interrupção:</p>
 <ul>
 <li>
-<p>Um micro-kernel visa remover todo código de alto nível do kernel, deixando somente o necessário para interagir com o hardware e criar algumas abstrações básicas. E o restante do código será transferido para programas separados no espaço usuário, denominado serviços.</p>
+<p>Salvar quais registros que ainda não foram salvos</p>
 </li>
 <li>
-<p>Os processos interagem com SO através de troca de mensagens</p>
-</li>
-</ul>
-<h4 id="vantagens_1">Vantagens</h4>
-<p>Modularização: A  abordagem micronúcleo oferece maior modularidade, pois cada serviço pode ser desenvolvido de forma independente dos demais; mais flexibilidade, pois os serviços podem ser carregados e desativados conforme a necessidade; e mais robustez, pois caso um serviço falhe, somente ele será afetado, devido ao confinamento de memória entre os serviços.</p>
-<h4 id="desvantagens_2">Desvantagens</h4>
-<p>Implementação: Algumas partes do sistema operacional é impossível implementar esse esquema -&gt; carragar comandos nos registradores físicos.</p>
-<p>Difícil implementação.</p>
-<p><img alt="Abordagem micro-kernel" src="../../img/fundamentos_de_SO/micro.png" /></p>
-<h3 id="exo-kernel">Exo-kernel</h3>
-<ul>
-<li>
-<p>o núcleo do sistema apenas proporciona acesso controlado aos recursos do hardware, mas não implementa nenhuma abstração.</p>
+<p>Estabelecer um contexto para a rotina de tratamento de interrupção</p>
 </li>
 <li>
-<p>Separado em duas partes: &lt; Exo-kernel -&gt; núcleo minimalista que faz a multiplexação segura entre os recursos de hardware, protegendo-os. &lt; LibOS  -&gt; conjunto de biblioteca que gerenciam recursos e oferecem abstrações de alto nível para as aplicações</p>
+<p>Sinalizador o controlador de interrupção</p>
+</li>
+<li>
+<p>O copiar os registradores de onde eles foram salvos(pilha no hardware) para a tabela de processos</p>
+</li>
+<li>
+<p>Executar a rotina de tratamento de interrupções, utilizando as informações dada pelo computador</p>
 </li>
 </ul>
 
@@ -809,7 +803,7 @@
       <nav class="md-footer__inner md-grid" aria-label="Rodapé" >
         
           
-          <a href="../classificacoes_SO/" class="md-footer__link md-footer__link--prev" aria-label="Anterior: Classificações dos SO">
+          <a href="../../sistema_de_arquivos/sistema_de_arquivos/" class="md-footer__link md-footer__link--prev" aria-label="Anterior: Sistema de Arquivos">
             <div class="md-footer__button md-icon">
               
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
@@ -819,20 +813,20 @@
                 Anterior
               </span>
               <div class="md-ellipsis">
-                Classificações dos SO
+                Sistema de Arquivos
               </div>
             </div>
           </a>
         
         
           
-          <a href="../../processos/processos/" class="md-footer__link md-footer__link--next" aria-label="Próximo: Processos">
+          <a href="../../../compiladores/sintantico/" class="md-footer__link md-footer__link--next" aria-label="Próximo: Analisador Sintático">
             <div class="md-footer__title">
               <span class="md-footer__direction">
                 Próximo
               </span>
               <div class="md-ellipsis">
-                Processos
+                Analisador Sintático
               </div>
             </div>
             <div class="md-footer__button md-icon">
@@ -866,10 +860,10 @@
     </div>
     
     
-    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.tabs", "navigation.tabs.sticky", "navigation.path", "navigation.prune", "navigation.top", "navigation.footer", "navigations.indexes", "content.code.copy", "toc.integrate", "search.suggest", "search.highlight"], "search": "../../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copiado para \u00e1rea de transfer\u00eancia", "clipboard.copy": "Copiar para \u00e1rea de transfer\u00eancia", "search.result.more.one": "Mais 1 nesta p\u00e1gina", "search.result.more.other": "Mais # nesta p\u00e1gina", "search.result.none": "Nenhum resultado encontrado", "search.result.one": "1 resultado encontrado", "search.result.other": "# resultados encontrados", "search.result.placeholder": "Digite para iniciar a busca", "search.result.term.missing": "Ausente", "select.version": "Selecione a vers\u00e3o"}}</script>
+    <script id="__config" type="application/json">{"base": "../../..", "features": ["navigation.tabs", "navigation.tabs.sticky", "navigation.path", "navigation.prune", "navigation.top", "navigation.footer", "navigations.indexes", "content.code.copy", "toc.integrate", "search.suggest", "search.highlight"], "search": "../../../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copiado para \u00e1rea de transfer\u00eancia", "clipboard.copy": "Copiar para \u00e1rea de transfer\u00eancia", "search.result.more.one": "Mais 1 nesta p\u00e1gina", "search.result.more.other": "Mais # nesta p\u00e1gina", "search.result.none": "Nenhum resultado encontrado", "search.result.one": "1 resultado encontrado", "search.result.other": "# resultados encontrados", "search.result.placeholder": "Digite para iniciar a busca", "search.result.term.missing": "Ausente", "select.version": "Selecione a vers\u00e3o"}}</script>
     
     
-      <script src="../../assets/javascripts/bundle.3220b9d7.min.js"></script>
+      <script src="../../../assets/javascripts/bundle.3220b9d7.min.js"></script>
       
     
   </body>

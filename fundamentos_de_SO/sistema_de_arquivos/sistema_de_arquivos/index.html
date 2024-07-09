@@ -9,25 +9,25 @@
       
       
       
-        <link rel="prev" href="../classificacoes_SO/">
+        <link rel="prev" href="../../gerencia_de_memoria/gerencia_de_memoria/">
       
       
-        <link rel="next" href="../../processos/processos/">
+        <link rel="next" href="../../entrada_saida/entrada_saida/">
       
       
-      <link rel="icon" href="../../assets/images/favicon.png">
+      <link rel="icon" href="../../../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.5.18">
     
     
       
-        <title>Estrutura dos Sistema Operacional - UNB - Engenharia de Software</title>
+        <title>Sistema de Arquivos - UNB - Engenharia de Software</title>
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.66ac8b77.min.css">
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.66ac8b77.min.css">
       
         
-        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.06af60db.min.css">
       
       
 
@@ -46,7 +46,7 @@
       
     
     
-    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
@@ -72,7 +72,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#estrutura-de-kernel" class="md-skip">
+        <a href="#atributos-de-arquivos" class="md-skip">
           Ir para o conteúdo
         </a>
       
@@ -88,7 +88,7 @@
 
 <header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Cabeçalho">
-    <a href="../.." title="UNB - Engenharia de Software" class="md-header__button md-logo" aria-label="UNB - Engenharia de Software" data-md-component="logo">
+    <a href="../../.." title="UNB - Engenharia de Software" class="md-header__button md-logo" aria-label="UNB - Engenharia de Software" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
@@ -108,7 +108,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Estrutura dos Sistema Operacional
+              Sistema de Arquivos
             
           </span>
         </div>
@@ -199,7 +199,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../.." class="md-tabs__link">
+      <a href="../../.." class="md-tabs__link">
         
   
     
@@ -220,7 +220,7 @@
     
     
       <li class="md-tabs__item md-tabs__item--active">
-        <a href="../visao_geral/" class="md-tabs__link">
+        <a href="../../visao_geral/" class="md-tabs__link">
           
   
   FSO
@@ -238,7 +238,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../compiladores/sintantico/" class="md-tabs__link">
+        <a href="../../../compiladores/sintantico/" class="md-tabs__link">
           
   
   Compiladores
@@ -279,7 +279,7 @@
 
 <nav class="md-nav md-nav--primary md-nav--lifted md-nav--integrated" aria-label="Navegação" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="../.." title="UNB - Engenharia de Software" class="md-nav__button md-logo" aria-label="UNB - Engenharia de Software" data-md-component="logo">
+    <a href="../../.." title="UNB - Engenharia de Software" class="md-nav__button md-logo" aria-label="UNB - Engenharia de Software" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
@@ -297,7 +297,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../.." class="md-nav__link">
+      <a href="../../.." class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -362,7 +362,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../visao_geral/" class="md-nav__link">
+      <a href="../../visao_geral/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -383,11 +383,74 @@
   
   
     <li class="md-nav__item">
-      <a href="../classificacoes_SO/" class="md-nav__link">
+      <a href="../../classificacoes_SO/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
     Classificações dos SO
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../estrutura_kernel/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Estrutura dos Sistema Operacional
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../processos/processos/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Processos
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../gerencia_de_memoria/gerencia_de_memoria/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Gerência de Memória
   </span>
   
 
@@ -413,215 +476,7 @@
         
       
       
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  <span class="md-ellipsis">
-    Estrutura dos Sistema Operacional
-  </span>
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
       <a href="./" class="md-nav__link md-nav__link--active">
-        
-  
-  <span class="md-ellipsis">
-    Estrutura dos Sistema Operacional
-  </span>
-  
-
-      </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Índice">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Índice
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#definicao" class="md-nav__link">
-    <span class="md-ellipsis">
-      Definição
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Definição">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#sistema-monoliticos" class="md-nav__link">
-    <span class="md-ellipsis">
-      Sistema Monolíticos
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Sistema Monolíticos">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#vantagens" class="md-nav__link">
-    <span class="md-ellipsis">
-      Vantagens
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#desvantagens" class="md-nav__link">
-    <span class="md-ellipsis">
-      Desvantagens
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#sistema-em-camadas" class="md-nav__link">
-    <span class="md-ellipsis">
-      Sistema em camadas
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Sistema em camadas">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#desvantagens_1" class="md-nav__link">
-    <span class="md-ellipsis">
-      Desvantagens
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#micro-kernel" class="md-nav__link">
-    <span class="md-ellipsis">
-      Micro-kernel
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Micro-kernel">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#vantagens_1" class="md-nav__link">
-    <span class="md-ellipsis">
-      Vantagens
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#desvantagens_2" class="md-nav__link">
-    <span class="md-ellipsis">
-      Desvantagens
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#exo-kernel" class="md-nav__link">
-    <span class="md-ellipsis">
-      Exo-kernel
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../processos/processos/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    Processos
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../gerencia_de_memoria/gerencia_de_memoria/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    Gerência de Memória
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../sistema_de_arquivos/sistema_de_arquivos/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -630,6 +485,7 @@
   
 
       </a>
+      
     </li>
   
 
@@ -642,7 +498,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../entrada_saida/entrada_saida/" class="md-nav__link">
+      <a href="../../entrada_saida/entrada_saida/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -686,7 +542,7 @@
         
   
   
-    <a href="../../compiladores/sintantico/" class="md-nav__link">
+    <a href="../../../compiladores/sintantico/" class="md-nav__link">
       
   
   <span class="md-ellipsis">
@@ -720,60 +576,38 @@
                   
 
 
-<h1 id="estrutura-de-kernel">Estrutura de Kernel</h1>
-<h2 id="definicao">Definição</h2>
-<p>É de acordo como a estrutura(núcleo) está organizado.</p>
-<p>Sendo eles, Sistemas Monolíticos, Sistema em camadas, Máquinas Virtuais, Micro-kernel(cliente/servidor), Exo-kernel.</p>
-<h3 id="sistema-monoliticos">Sistema Monolíticos</h3>
 <ul>
-<li>O sistema é um "bloco maciço" de código que opera em modo núcleo, com acesso a todos os recursos do hardware e sem restrições de acesso a memória.</li>
+<li>Armazenamento de informações a longo prazo:</li>
+<li>Deve ser possível armazenar uma quantidade muito grande de informações</li>
+<li>As informações devem sobreviver ao término do processo que as está utilizando</li>
+<li>Múltiplos processos têm de ser capazes de acessá-las ao mesmo tempo</li>
 </ul>
-<h4 id="vantagens">Vantagens</h4>
+<h1 id="atributos-de-arquivos">Atributos de Arquivos</h1>
+<ol>
+<li>Proteção: Quem tem acesso ao arquivo e qual o modo</li>
+<li>Criador: Quem criou o arquivo</li>
+<li>Proprietário: O atual dono do arquivo</li>
+<li>Flag de acesso aleatório: Indicando se pode ser efeito acesso aleatório ou se deve ser sequencial</li>
+<li>Tamanho: O Tamanho atual do arquivo</li>
+</ol>
+<h1 id="diretorios">Diretórios</h1>
 <ul>
-<li>Desempenho: Qualquer componente pode acessar os demais componente diretamente, pois não há barreiras.</li>
+<li>Os diretórios são utilizados para organizar logicamente os arquivos contidos no disco.</li>
 </ul>
-<h4 id="desvantagens">Desvantagens</h4>
-<ul>
-<li>
-<p>Problema de Robustez: Como todos os componentes tem privilegio a todo o hardware, caso ocorra um erro, este erro pode se espalhar rapidamente por todo o sistema.</p>
-</li>
-<li>
-<p>Escabilidade: Como todo o núcleo está unido, o sistema pode ser fortemente interdependentes, tornando a manuteção e a evolução mais complexa a cada adição de funcionalidades.</p>
-</li>
-</ul>
-<p><img alt="Estrutura de monolítico" src="../../img/fundamentos_de_SO/monolitico.png" /></p>
-<h3 id="sistema-em-camadas">Sistema em camadas</h3>
-<ul>
-<li>Uma forma mais elegante de estruturar um sistema operacional faz uso da noção de camadas: a camada mais baixa realiza a interface com o hardware, enquanto as camadas intermediárias proveem níveis de abstração e gerência cada vez mais sofisticados. Por fim, a camada superior define a interface do núcleo para as aplicações (as chamadas de sistema). As camadas têm níveis de privilégio decrescentes: a camada inferior tem acesso total ao hardware, enquanto a superior tem acesso bem mais restrito.</li>
-</ul>
-<h4 id="desvantagens_1">Desvantagens</h4>
-<p>Lento desempenho: Por causa de cada camada precisar se comunicar, acaba deixando lento a comunicação de por exemplo, entrada do teclado.</p>
-<p>Divisão-não-clara: Como muitos recursos tinha co-relação, era dificil separar de maneira óbvia as camadas</p>
-<p><img alt="Estrutura em camadas" src="../../img/fundamentos_de_SO/so_camadas.png" /></p>
-<h3 id="micro-kernel">Micro-kernel</h3>
-<ul>
-<li>
-<p>Um micro-kernel visa remover todo código de alto nível do kernel, deixando somente o necessário para interagir com o hardware e criar algumas abstrações básicas. E o restante do código será transferido para programas separados no espaço usuário, denominado serviços.</p>
-</li>
-<li>
-<p>Os processos interagem com SO através de troca de mensagens</p>
-</li>
-</ul>
-<h4 id="vantagens_1">Vantagens</h4>
-<p>Modularização: A  abordagem micronúcleo oferece maior modularidade, pois cada serviço pode ser desenvolvido de forma independente dos demais; mais flexibilidade, pois os serviços podem ser carregados e desativados conforme a necessidade; e mais robustez, pois caso um serviço falhe, somente ele será afetado, devido ao confinamento de memória entre os serviços.</p>
-<h4 id="desvantagens_2">Desvantagens</h4>
-<p>Implementação: Algumas partes do sistema operacional é impossível implementar esse esquema -&gt; carragar comandos nos registradores físicos.</p>
-<p>Difícil implementação.</p>
-<p><img alt="Abordagem micro-kernel" src="../../img/fundamentos_de_SO/micro.png" /></p>
-<h3 id="exo-kernel">Exo-kernel</h3>
-<ul>
-<li>
-<p>o núcleo do sistema apenas proporciona acesso controlado aos recursos do hardware, mas não implementa nenhuma abstração.</p>
-</li>
-<li>
-<p>Separado em duas partes: &lt; Exo-kernel -&gt; núcleo minimalista que faz a multiplexação segura entre os recursos de hardware, protegendo-os. &lt; LibOS  -&gt; conjunto de biblioteca que gerenciam recursos e oferecem abstrações de alto nível para as aplicações</p>
-</li>
-</ul>
+<h2 id="sistemas-de-diretorio-em-nivel-unico">Sistemas de diretório em nível único</h2>
+<p>São a forma mais simples de um sistema de diretórios</p>
+<p>Há um diretório contendo todos os arquivos chamado de diretório raiz</p>
+<p><img alt="Level Único" src="../../../img/fundamentos_de_SO/levelunico.png" /></p>
+<h2 id="sistemas-de-diretorio-em-niveis-hierarquicos">Sistemas de diretório em níveis hierárquicos</h2>
+<p>É possível criar um diretório dentro de outros diretórios, gerando então uma estrutura de árvore</p>
+<h1 id="arquivos-de-sistema">Arquivos de Sistema</h1>
+<p>São Bibliotecas compartilhadas, daemons de gerência de rede, arquivos temporários, entre outros.</p>
+<p>FHS é um padrão mantido pela Linux Foundation inspirado pelo antigo Filesystem Standard dos sistemas UNIX</p>
+<p><img alt="FHS" src="../../../img/fundamentos_de_SO/FHS.png" /></p>
+<h1 id="gerencia-de-espaco-livre-em-disco">Gerência de Espaço Livre em Disco</h1>
+<p>responsável por manter informações de quais blocos não estão sendo utilizados no disco</p>
+<h1 id="gerencia-de-alocacao-de-espaco">Gerência de Alocação de Espaço</h1>
+<p>Responsável por dizer quais blocos petencem a quais arquivos</p>
 
 
 
@@ -809,7 +643,7 @@
       <nav class="md-footer__inner md-grid" aria-label="Rodapé" >
         
           
-          <a href="../classificacoes_SO/" class="md-footer__link md-footer__link--prev" aria-label="Anterior: Classificações dos SO">
+          <a href="../../gerencia_de_memoria/gerencia_de_memoria/" class="md-footer__link md-footer__link--prev" aria-label="Anterior: Gerência de Memória">
             <div class="md-footer__button md-icon">
               
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
@@ -819,20 +653,20 @@
                 Anterior
               </span>
               <div class="md-ellipsis">
-                Classificações dos SO
+                Gerência de Memória
               </div>
             </div>
           </a>
         
         
           
-          <a href="../../processos/processos/" class="md-footer__link md-footer__link--next" aria-label="Próximo: Processos">
+          <a href="../../entrada_saida/entrada_saida/" class="md-footer__link md-footer__link--next" aria-label="Próximo: Entrada/Saída">
             <div class="md-footer__title">
               <span class="md-footer__direction">
                 Próximo
               </span>
               <div class="md-ellipsis">
-                Processos
+                Entrada/Saída
               </div>
             </div>
             <div class="md-footer__button md-icon">
@@ -866,10 +700,10 @@
     </div>
     
     
-    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.tabs", "navigation.tabs.sticky", "navigation.path", "navigation.prune", "navigation.top", "navigation.footer", "navigations.indexes", "content.code.copy", "toc.integrate", "search.suggest", "search.highlight"], "search": "../../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copiado para \u00e1rea de transfer\u00eancia", "clipboard.copy": "Copiar para \u00e1rea de transfer\u00eancia", "search.result.more.one": "Mais 1 nesta p\u00e1gina", "search.result.more.other": "Mais # nesta p\u00e1gina", "search.result.none": "Nenhum resultado encontrado", "search.result.one": "1 resultado encontrado", "search.result.other": "# resultados encontrados", "search.result.placeholder": "Digite para iniciar a busca", "search.result.term.missing": "Ausente", "select.version": "Selecione a vers\u00e3o"}}</script>
+    <script id="__config" type="application/json">{"base": "../../..", "features": ["navigation.tabs", "navigation.tabs.sticky", "navigation.path", "navigation.prune", "navigation.top", "navigation.footer", "navigations.indexes", "content.code.copy", "toc.integrate", "search.suggest", "search.highlight"], "search": "../../../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copiado para \u00e1rea de transfer\u00eancia", "clipboard.copy": "Copiar para \u00e1rea de transfer\u00eancia", "search.result.more.one": "Mais 1 nesta p\u00e1gina", "search.result.more.other": "Mais # nesta p\u00e1gina", "search.result.none": "Nenhum resultado encontrado", "search.result.one": "1 resultado encontrado", "search.result.other": "# resultados encontrados", "search.result.placeholder": "Digite para iniciar a busca", "search.result.term.missing": "Ausente", "select.version": "Selecione a vers\u00e3o"}}</script>
     
     
-      <script src="../../assets/javascripts/bundle.3220b9d7.min.js"></script>
+      <script src="../../../assets/javascripts/bundle.3220b9d7.min.js"></script>
       
     
   </body>

@@ -12,7 +12,7 @@
         <link rel="prev" href="../../../processos/processos/">
       
       
-        <link rel="next" href="../../../compiladores/sintantico/">
+        <link rel="next" href="../../sistema_de_arquivos/sistema_de_arquivos/">
       
       
       <link rel="icon" href="../../../assets/images/favicon.png">
@@ -676,9 +676,51 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#working-set" class="md-nav__link">
+    <span class="md-ellipsis">
+      Working Set
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#algoritmos-de-substituicao-de-paginas" class="md-nav__link">
+    <span class="md-ellipsis">
+      Algoritmos de Substituição de Páginas
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Algoritmos de Substituição de Páginas">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#tamanho-das-paginas" class="md-nav__link">
+    <span class="md-ellipsis">
+      Tamanho das páginas
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#memoria-virtual-por-segmentacao" class="md-nav__link">
     <span class="md-ellipsis">
       Memória Virtual por segmentação
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#comparacao-entre-paginacao-e-segmentacao" class="md-nav__link">
+    <span class="md-ellipsis">
+      Comparação entre PAGINAÇÂO e SEGMENTAÇÃO
     </span>
   </a>
   
@@ -693,6 +735,48 @@
   
 </nav>
       
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../sistema_de_arquivos/sistema_de_arquivos/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Sistema de Arquivos
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../entrada_saida/entrada_saida/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Entrada/Saída
+  </span>
+  
+
+      </a>
     </li>
   
 
@@ -876,7 +960,69 @@
 <p>Se tiver presente, o mapeamento é imediato</p>
 <p>Senão, um acesso à memória é feito para recuperar a entrada da tabela de páginas</p>
 <h3 id="memoria-virtual-por-paginacao">Memória Virtual por Paginação</h3>
+<p>Divide a memória física e a memória virtual em unidades de tamanho fixo.</p>
+<p>Páginas Virtuais e Páginas Reais</p>
+<p>As pages frames são são o espaço das páginas enquanto elas estiverem na memória.</p>
+<p>A CPU envia o endereço virtual (v) para a MMU.</p>
+<p>Na MMU, o endereço virtual é dividido em (p,d) onde p é a página e d é o deslocamento dentro da página.</p>
+<p>A MMU substitui p por f e coloca o endereço(d,f) no barramento</p>
+<p><img alt="Memória em vetor" src="../../../img/fundamentos_de_SO/MMu.png" /></p>
+<p>A entrada da tabela de páginas contém diversas informações: localização da página virtual, se está na memória principal ou secundária, se ela foi referenciada, altera ou se esta protegida entre outros.</p>
+<p>Quando a memória foi referenciada e não está na memória principal, é gerado um <strong>page fault</strong></p>
+<p>Então, o SO irá transferir a página da memória secundária para a principal: PAGE IN</p>
+<p>Neste processo, ela irá escolher uma página para ser substituída da memória principal, atualizar a tabela de páginas e reexecutar a instrução que causou page fault.</p>
+<p>Quando um page fault ocorre, o processo é alterado para o estado de bloqueado, até que a operação de E/S para carregar a página na memória seja resolvida.</p>
+<p>O procedimento de mover uma página para disco é conhecido como PAGE OUT</p>
+<ul>
+<li>Busca de Página</li>
+</ul>
+<p>Ao se buscar páginas na memória, pode-se utilizar diferentes estratégias:</p>
+<ol>
+<li>Páginação por Demanda: As páguinas dos processos são transferidas somente quando ocorre algumas referência a ela. Somente carrega páginas necessárias a memória. </li>
+<li>
+<p>Paginação Antecipada: Ao carregar uma página para a memória principal, o sistema também carrega páginas próximas, buscando antecipar páginas que serão acessadas</p>
+</li>
+<li>
+<p>Alocação de Páginas</p>
+</li>
+</ol>
+<p>A política de alocação de páginas determina quantos frames cada processo pode ter na memória principal:</p>
+<ol>
+<li>Política de alocação fixa: Cada processo tem um número máximo de frames a ocupar durante a execução do programa. Se atingir o máximo, é forçado um page fault.</li>
+<li>Política de alocação variável: Na alocação variável, o número de páginas do processo varia durante a sua execução em função da taxa de paginação e a sua atual posição na posição de memória. Assim, os processos que estão sofrendo muitos page fault pode ampliar o limite máximo de frames, a fim de reduzir o número de page faults</li>
+</ol>
+<h3 id="working-set">Working Set</h3>
+<p>Existe um desafio a se implmentar a memória virtual, para decidir quais páginas permanecem na memória e quais deveria sair.</p>
+<p>Caso ocorra muitos pages faults, é denominado de THRASHING</p>
+<p>O princício da localidade define dois tipos de localidade:</p>
+<ul>
+<li>Localidade Espacial: Após uma referência a uma memória, é provável que as próximas referências sejam realizadas em regiões próximas.</li>
+<li>Localidade Temporal: Após uma referência a uma memória, é provável que as próximas referências sejam realizadas em um curto espaço de tempo.</li>
+</ul>
+<p>Por isso, pode-se dizer que a memória é dividida em fases: </p>
+<p><img alt="Memória em vetor" src="../../../img/fundamentos_de_SO/fases.png" /></p>
+<p>O princípio da localidade é intuitivo, ao pensar que o programa é composto por loops: a tendência é que os mesmos dados sejam acessados.</p>
+<h2 id="algoritmos-de-substituicao-de-paginas">Algoritmos de Substituição de Páginas</h2>
+<p>Serve para escolher os frames que serão substituídos levando em conta que não serão os próximos à serem escolhidos.</p>
+<p>Principais Algoritmos:</p>
+<ol>
+<li>Ótimo: Seleciona a página que não será mais referenciada no futuro, impossível de ser implementada</li>
+<li>Aleatório: Algoritmo seleciona aleatoriamente as páginas a serem substituídas, não possui eficiência boa</li>
+<li>First-in First-out(FIFO): Seleciona a página que está a mais tempo na memória, mantendo as páginas mais novas nela.</li>
+<li>Least-Frequently-Used(LFU): O algoritmo seleciona a página menos utilizada, cria um overhead de manter um contador para cada acesso na memória realizado pelos programas.</li>
+<li>Least-Recently-Used(LRU): Algoritmo seleciona página que está a mais tempo sem ser utilizada, alto custo de implementação.</li>
+<li>Not-Recently-Used(NRU): Simplificação do LRU, Na tabela de páginas, existe um bit de referência, caso a página for acessada ela recebe o bit 1, e depois de um tempo, todos os bits virão 0.</li>
+<li>FIFO Circular(CLOCK): Algoritmo que utiliza FIFO, porém está numa estrutura circular, semelhante a um relógio. Existe um ponteiro que guarda a posição da página mais antiga na lista, cada página possui um bit de referência. PRESENTE EM MUITOS SISTEMAS UNIX.</li>
+</ol>
+<h3 id="tamanho-das-paginas">Tamanho das páginas</h3>
+<p>O tamanho da página varia de acordo com o hardware.</p>
 <h3 id="memoria-virtual-por-segmentacao">Memória Virtual por segmentação</h3>
+<p>Divide as memórias físicas e virtual em unidades de tamanho variável.</p>
+<h3 id="comparacao-entre-paginacao-e-segmentacao">Comparação entre PAGINAÇÂO e SEGMENTAÇÃO</h3>
+<ul>
+<li>Fragmentação:</li>
+</ul>
+<p>Na paginação ocorre o problema da fragmentaçãp interna: Como ela possui tamanho fixo, não é garantia que será complemetamente utilizado.</p>
 
 
 
@@ -929,13 +1075,13 @@
         
         
           
-          <a href="../../../compiladores/sintantico/" class="md-footer__link md-footer__link--next" aria-label="Próximo: Analisador Sintático">
+          <a href="../../sistema_de_arquivos/sistema_de_arquivos/" class="md-footer__link md-footer__link--next" aria-label="Próximo: Sistema de Arquivos">
             <div class="md-footer__title">
               <span class="md-footer__direction">
                 Próximo
               </span>
               <div class="md-ellipsis">
-                Analisador Sintático
+                Sistema de Arquivos
               </div>
             </div>
             <div class="md-footer__button md-icon">
