@@ -14,7 +14,7 @@ int UNKNOWN = 0;
 
 %%
 
-\(\*.*\*\) { COMMENTS++; printf("%s",yytext);}
+\(\*.*\*\) { COMMENTS++; }
 and|array|begin|div|do|else|end|function|goto|if|label|not|of|or|procedure|program|then|type|var|while|read|write { KEYWORD++; }
 [a-zA-Z][a-zA-Z0-9]* { IDENTIFIER++; }
 [0-9]+(\.[0-9]+)? { NUMBER++; }
